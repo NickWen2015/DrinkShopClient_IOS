@@ -89,8 +89,6 @@
 				2B5E32382193CA2F00A04A50 /* ChatRoom */,
 				2B5E32312193C98000A04A50 /* Activities */,
 				2B5E32302193C8F200A04A50 /* Member */,
-				2B310E59216A35A400EBAEA2 /* Main.storyboard */,
-				2B310E55216A35A400EBAEA2 /* AppDelegate.swift */,
 				2B310E5C216A35A600EBAEA2 /* Assets.xcassets */,
 				2B310E5E216A35A600EBAEA2 /* LaunchScreen.storyboard */,
 				2B310E61216A35A600EBAEA2 /* Info.plist */,
@@ -101,7 +99,6 @@
 		2B5E32302193C8F200A04A50 /* Member */ = {
 			isa = PBXGroup;
 			children = (
-				2B5E322C21932F7800A04A50 /* Member.storyboard */,
 				2B86C97B218FE75600D93FC9 /* Model */,
 				2B86C97D218FE7AA00D93FC9 /* View */,
 				2B86C97C218FE76900D93FC9 /* Controller */,
@@ -112,7 +109,6 @@
 		2B5E32312193C98000A04A50 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				2B5E32352193C9E100A04A50 /* Activities.storyboard */,
 				2B5E32322193C99100A04A50 /* Model */,
 				2B5E32342193C9AE00A04A50 /* View */,
 				2B5E32332193C9A300A04A50 /* Controller */,
@@ -137,6 +133,7 @@
 		2B5E32342193C9AE00A04A50 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2B5E32352193C9E100A04A50 /* Activities.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,7 +144,6 @@
 				2B5E323E2193CA8000A04A50 /* Controller */,
 				2B5E323D2193CA7500A04A50 /* View */,
 				2B5E323C2193CA6D00A04A50 /* Model */,
-				2B5E323F2193D3F700A04A50 /* ChatRoom.storyboard */,
 			);
 			path = ChatRoom;
 			sourceTree = "<group>";
@@ -162,6 +158,7 @@
 		2B5E323D2193CA7500A04A50 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2B5E323F2193D3F700A04A50 /* ChatRoom.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,10 +173,36 @@
 		2B71078A2193D8660061CF64 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2B310E55216A35A400EBAEA2 /* AppDelegate.swift */,
+				2B71078D2193F36B0061CF64 /* Model */,
+				2B71078C2193F35F0061CF64 /* Controller */,
+				2B71078B2193F34C0061CF64 /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2B71078B2193F34C0061CF64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B310E59216A35A400EBAEA2 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B71078C2193F35F0061CF64 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2B71078D2193F36B0061CF64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				2CB6568B2193E7380086798A /* ColorHelper.swift */,
 				2BFE784D21900F42005CD0D9 /* Common.swift */,
 			);
-			path = Common;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2B86C97B218FE75600D93FC9 /* Model */ = {
@@ -202,6 +225,7 @@
 		2B86C97D218FE7AA00D93FC9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2B5E322C21932F7800A04A50 /* Member.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";

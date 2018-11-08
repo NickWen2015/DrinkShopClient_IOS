@@ -17,11 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_head" translatesAutoresizingMaskIntoConstraints="NO" id="Vfh-DX-Feu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default_head" translatesAutoresizingMaskIntoConstraints="NO" id="Vfh-DX-Feu">
                                 <rect key="frame" x="107" y="64" width="161" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未登入" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXB-FM-g4N">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="未登入" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXB-FM-g4N">
                                 <rect key="frame" x="147" y="204" width="81" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -147,14 +149,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.91617096952980548" green="0.91617096952980548" blue="0.91617096952980548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.93524615988513538" green="0.93524615988513538" blue="0.93524615988513538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Vfh-DX-Feu" firstAttribute="top" secondItem="erJ-Bk-aNg" secondAttribute="top" id="1jj-Qd-RU4"/>
-                            <constraint firstItem="VXB-FM-g4N" firstAttribute="leading" secondItem="erJ-Bk-aNg" secondAttribute="leading" constant="147" id="DxZ-f7-BlZ"/>
-                            <constraint firstItem="VXB-FM-g4N" firstAttribute="top" secondItem="Vfh-DX-Feu" secondAttribute="bottom" constant="20" id="Nvc-eG-Vb4"/>
-                            <constraint firstItem="erJ-Bk-aNg" firstAttribute="trailing" secondItem="Vfh-DX-Feu" secondAttribute="trailing" constant="107" id="ePk-pa-EYU"/>
-                            <constraint firstItem="Vfh-DX-Feu" firstAttribute="leading" secondItem="erJ-Bk-aNg" secondAttribute="leading" constant="107" id="h60-Cx-eEO"/>
-                            <constraint firstItem="erJ-Bk-aNg" firstAttribute="trailing" secondItem="VXB-FM-g4N" secondAttribute="trailing" constant="147" id="qdl-Ju-M6f"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="erJ-Bk-aNg"/>
                     </view>
                     <navigationItem key="navigationItem" id="LWb-m0-5hB"/>
