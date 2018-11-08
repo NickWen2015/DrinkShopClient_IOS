@@ -12,6 +12,12 @@
 		2B310E5B216A35A400EBAEA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B310E59216A35A400EBAEA2 /* Main.storyboard */; };
 		2B310E5D216A35A600EBAEA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B310E5C216A35A600EBAEA2 /* Assets.xcassets */; };
 		2B310E60216A35A600EBAEA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B310E5E216A35A600EBAEA2 /* LaunchScreen.storyboard */; };
+		2B5E322D21932F7800A04A50 /* Member.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E322C21932F7800A04A50 /* Member.storyboard */; };
+		2B5E322F2193398B00A04A50 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E322E2193398B00A04A50 /* MemberViewController.swift */; };
+		2B5E32362193C9E100A04A50 /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E32352193C9E100A04A50 /* Activities.storyboard */; };
+		2B5E32402193D3F700A04A50 /* ChatRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E323F2193D3F700A04A50 /* ChatRoom.storyboard */; };
+		2BFE784C218FFF3F005CD0D9 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE784B218FFF3F005CD0D9 /* Member.swift */; };
+		2BFE784E21900F42005CD0D9 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE784D21900F42005CD0D9 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		2B310E5C216A35A600EBAEA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B310E5F216A35A600EBAEA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B310E61216A35A600EBAEA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B5E322C21932F7800A04A50 /* Member.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Member.storyboard; sourceTree = "<group>"; };
+		2B5E322E2193398B00A04A50 /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
+		2B5E32352193C9E100A04A50 /* Activities.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
+		2B5E323F2193D3F700A04A50 /* ChatRoom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatRoom.storyboard; sourceTree = "<group>"; };
+		2BFE784B218FFF3F005CD0D9 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		2BFE784D21900F42005CD0D9 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +66,124 @@
 		2B310E54216A35A400EBAEA2 /* DrinkShopClient_IOS */ = {
 			isa = PBXGroup;
 			children = (
-				2B310E55216A35A400EBAEA2 /* AppDelegate.swift */,
-				2B310E57216A35A400EBAEA2 /* ViewController.swift */,
+				2B71078A2193D8660061CF64 /* Common */,
+				2B5E32382193CA2F00A04A50 /* ChatRoom */,
+				2B5E32312193C98000A04A50 /* Activities */,
+				2B5E32302193C8F200A04A50 /* Member */,
 				2B310E59216A35A400EBAEA2 /* Main.storyboard */,
+				2B310E55216A35A400EBAEA2 /* AppDelegate.swift */,
 				2B310E5C216A35A600EBAEA2 /* Assets.xcassets */,
 				2B310E5E216A35A600EBAEA2 /* LaunchScreen.storyboard */,
 				2B310E61216A35A600EBAEA2 /* Info.plist */,
 			);
 			path = DrinkShopClient_IOS;
+			sourceTree = "<group>";
+		};
+		2B5E32302193C8F200A04A50 /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				2B5E322C21932F7800A04A50 /* Member.storyboard */,
+				2B86C97B218FE75600D93FC9 /* Model */,
+				2B86C97D218FE7AA00D93FC9 /* View */,
+				2B86C97C218FE76900D93FC9 /* Controller */,
+			);
+			path = Member;
+			sourceTree = "<group>";
+		};
+		2B5E32312193C98000A04A50 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				2B5E32352193C9E100A04A50 /* Activities.storyboard */,
+				2B5E32322193C99100A04A50 /* Model */,
+				2B5E32342193C9AE00A04A50 /* View */,
+				2B5E32332193C9A300A04A50 /* Controller */,
+			);
+			path = Activities;
+			sourceTree = "<group>";
+		};
+		2B5E32322193C99100A04A50 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B5E32332193C9A300A04A50 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2B5E32342193C9AE00A04A50 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B5E32382193CA2F00A04A50 /* ChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				2B5E323E2193CA8000A04A50 /* Controller */,
+				2B5E323D2193CA7500A04A50 /* View */,
+				2B5E323C2193CA6D00A04A50 /* Model */,
+				2B5E323F2193D3F700A04A50 /* ChatRoom.storyboard */,
+			);
+			path = ChatRoom;
+			sourceTree = "<group>";
+		};
+		2B5E323C2193CA6D00A04A50 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B5E323D2193CA7500A04A50 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B5E323E2193CA8000A04A50 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2B71078A2193D8660061CF64 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE784D21900F42005CD0D9 /* Common.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2B86C97B218FE75600D93FC9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE784B218FFF3F005CD0D9 /* Member.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B86C97C218FE76900D93FC9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2B310E57216A35A400EBAEA2 /* ViewController.swift */,
+				2B5E322E2193398B00A04A50 /* MemberViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2B86C97D218FE7AA00D93FC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +218,7 @@
 				TargetAttributes = {
 					2B310E51216A35A400EBAEA2 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -122,9 +245,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B5E32362193C9E100A04A50 /* Activities.storyboard in Resources */,
+				2B5E322D21932F7800A04A50 /* Member.storyboard in Resources */,
 				2B310E60216A35A600EBAEA2 /* LaunchScreen.storyboard in Resources */,
 				2B310E5D216A35A600EBAEA2 /* Assets.xcassets in Resources */,
 				2B310E5B216A35A400EBAEA2 /* Main.storyboard in Resources */,
+				2B5E32402193D3F700A04A50 /* ChatRoom.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B5E322F2193398B00A04A50 /* MemberViewController.swift in Sources */,
+				2BFE784E21900F42005CD0D9 /* Common.swift in Sources */,
 				2B310E58216A35A400EBAEA2 /* ViewController.swift in Sources */,
+				2BFE784C218FFF3F005CD0D9 /* Member.swift in Sources */,
 				2B310E56216A35A400EBAEA2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +411,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DrinkShopClient_IOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -290,6 +420,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "nick.com.DrinkShopClient-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -299,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DrinkShopClient_IOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -307,6 +440,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "nick.com.DrinkShopClient-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--OrderOnline-->
+        <scene sceneID="565-fo-kPx">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VkM-oi-Ar8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="OrderOnline" id="F5P-C3-273" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nrj-Ox-rl2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.98847224879999995" blue="0.73883648079999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="kA0-gD-pDM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="U9c-FO-G0r"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1097" y="961"/>
+        </scene>
+        <!--即時訂購-->
+        <scene sceneID="bfp-fp-pNS">
+            <objects>
+                <navigationController storyboardIdentifier="ChatRoomNavigationView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c0O-ja-Hm5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="即時訂購" image="orderonline" selectedImage="orderonline_selected" id="gYi-RP-mVm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xdi-Wb-FdA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="F5P-C3-273" kind="relationship" relationship="rootViewController" id="htL-XH-83d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j3F-XO-S18" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="326" y="962"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="orderonline" width="37.5" height="37.5"/>
+        <image name="orderonline_selected" width="37.5" height="37.5"/>
+    </resources>
+</document>

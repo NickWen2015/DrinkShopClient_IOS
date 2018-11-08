@@ -1,107 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y0E-1s-7MV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y0E-1s-7MV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Products-->
-        <scene sceneID="UNa-dy-hA3">
+        <!--ActivitiesNavigationView-->
+        <scene sceneID="9jx-rX-YO7">
             <objects>
-                <viewController title="Products" id="jBH-te-8Z1" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9sd-g9-i8J">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.21864659015170418" green="1" blue="0.82295094586131612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="8el-EQ-XHf"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="商品頁面" image="products" selectedImage="products_selected" id="efN-ws-JcD"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uQP-LG-13c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Activities" referencedIdentifier="ActivitiesNavigationView" id="YDz-vo-M8I" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="IXA-e9-voF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V4B-qd-92z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="124"/>
+            <point key="canvasLocation" x="108" y="-231"/>
         </scene>
-        <!--News-->
-        <scene sceneID="sdc-Ks-Jbq">
+        <!--MemberNavigationView-->
+        <scene sceneID="3st-Pp-bl7">
             <objects>
-                <viewController title="News" id="pNk-Mf-iLW" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jea-ok-rhI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="9jl-eV-ao8"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="最新消息" image="news" selectedImage="news_selected" id="rQt-KO-N3W"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rOv-pW-JM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Member" referencedIdentifier="MemberNavigationView" id="er3-ff-ans" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="w2c-Rt-PSS"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W1d-nT-SgM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="273" y="-851"/>
+            <point key="canvasLocation" x="102" y="88"/>
+        </scene>
+        <!--ChatRoomNavigationView-->
+        <scene sceneID="0XW-9c-vnz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChatRoom" referencedIdentifier="ChatRoomNavigationView" id="R7J-Wj-It6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="LWZ-uH-KFu"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0T1-fG-DV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114" y="261"/>
         </scene>
         <!--Member-->
         <scene sceneID="5Gq-RC-VF1">
             <objects>
-                <viewController title="Member" id="zki-Uv-tSj" sceneMemberID="viewController">
+                <viewController title="Member" id="zki-Uv-tSj" customClass="MemberViewController" customModule="DrinkShopClient_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vzr-3V-4pm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9jJ-hh-Sbz">
+                                <rect key="frame" x="86" y="368" width="203" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeS-Vc-6Sk">
+                                <rect key="frame" x="70" y="418" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.5215124262580626" green="1" blue="0.73861155622538144" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="uXr-Mn-wKu"/>
+                                </constraints>
+                                <state key="normal" title="會員註冊">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerBtnPressed:" destination="zki-Uv-tSj" eventType="touchUpInside" id="OfR-c5-tBj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBO-QX-o9A">
+                                <rect key="frame" x="205" y="418" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.4802110121926606" green="0.69253564148107671" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="gSf-1Y-DMK"/>
+                                </constraints>
+                                <state key="normal" title="會員登入">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginBtnPressed:" destination="zki-Uv-tSj" eventType="touchUpInside" id="1Xx-2h-aRP"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-4a-tUu">
+                                <rect key="frame" x="101.5" y="120" width="172" height="172"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入帳號" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aqj-6I-az3">
+                                <rect key="frame" x="86" y="318" width="203" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4aF-4a-tUu" firstAttribute="centerX" secondItem="vzr-3V-4pm" secondAttribute="centerX" id="BB3-TS-Ut7"/>
+                            <constraint firstItem="aqj-6I-az3" firstAttribute="top" secondItem="4aF-4a-tUu" secondAttribute="bottom" constant="26" id="Fwj-3b-QNg"/>
+                            <constraint firstItem="9jJ-hh-Sbz" firstAttribute="centerX" secondItem="vzr-3V-4pm" secondAttribute="centerX" id="OvK-hX-PVe"/>
+                            <constraint firstItem="4aF-4a-tUu" firstAttribute="leading" secondItem="Lm6-QL-E6w" secondAttribute="leading" constant="101.5" id="Swe-sN-zek"/>
+                            <constraint firstItem="aBO-QX-o9A" firstAttribute="top" secondItem="9jJ-hh-Sbz" secondAttribute="bottom" constant="20" id="TdH-6Y-ptX"/>
+                            <constraint firstItem="4aF-4a-tUu" firstAttribute="top" secondItem="Lm6-QL-E6w" secondAttribute="top" constant="100" id="Wm5-bk-PTf"/>
+                            <constraint firstItem="aqj-6I-az3" firstAttribute="leading" secondItem="Lm6-QL-E6w" secondAttribute="leading" constant="86" id="aEo-hY-9L8"/>
+                            <constraint firstItem="Lm6-QL-E6w" firstAttribute="trailing" secondItem="aBO-QX-o9A" secondAttribute="trailing" constant="70" id="aF1-bV-WkP"/>
+                            <constraint firstItem="Lm6-QL-E6w" firstAttribute="trailing" secondItem="aqj-6I-az3" secondAttribute="trailing" constant="86" id="amC-M8-7yT"/>
+                            <constraint firstItem="9jJ-hh-Sbz" firstAttribute="top" secondItem="aqj-6I-az3" secondAttribute="bottom" constant="20" id="cJ2-77-q3o"/>
+                            <constraint firstItem="Lm6-QL-E6w" firstAttribute="trailing" secondItem="4aF-4a-tUu" secondAttribute="trailing" constant="101.5" id="cKD-35-PGX"/>
+                            <constraint firstItem="HeS-Vc-6Sk" firstAttribute="top" secondItem="9jJ-hh-Sbz" secondAttribute="bottom" constant="20" id="daT-Dt-FVr"/>
+                            <constraint firstItem="Lm6-QL-E6w" firstAttribute="trailing" secondItem="9jJ-hh-Sbz" secondAttribute="trailing" constant="86" id="gHl-Nh-RbI"/>
+                            <constraint firstItem="HeS-Vc-6Sk" firstAttribute="leading" secondItem="Lm6-QL-E6w" secondAttribute="leading" constant="70" id="hgQ-ed-sz5"/>
+                            <constraint firstItem="aqj-6I-az3" firstAttribute="centerX" secondItem="vzr-3V-4pm" secondAttribute="centerX" id="i7p-10-FRz"/>
+                            <constraint firstItem="9jJ-hh-Sbz" firstAttribute="leading" secondItem="Lm6-QL-E6w" secondAttribute="leading" constant="86" id="mSC-x0-imj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Lm6-QL-E6w"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <tabBarItem key="tabBarItem" title="會員中心" image="member" selectedImage="member_selected" id="TnR-EM-tDh"/>
+                    <connections>
+                        <outlet property="accountTextField" destination="aqj-6I-az3" id="mX1-bE-TQq"/>
+                        <outlet property="passwordTextField" destination="9jJ-hh-Sbz" id="bMd-2Z-ojP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2B-uA-ExC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="909"/>
+            <point key="canvasLocation" x="-522" y="-546"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cPj-bo-G84">
             <objects>
                 <tabBarController id="Y0E-1s-7MV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="OWO-Z7-W2G"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vlj-6H-RMH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="pNk-Mf-iLW" kind="relationship" relationship="viewControllers" id="hfp-b8-Pui"/>
-                        <segue destination="jBH-te-8Z1" kind="relationship" relationship="viewControllers" id="bWx-La-0wg"/>
-                        <segue destination="zki-Uv-tSj" kind="relationship" relationship="viewControllers" id="Ysd-43-Ecu"/>
-                        <segue destination="R68-JU-3Ea" kind="relationship" relationship="viewControllers" id="kg8-4q-LsW"/>
+                        <segue destination="YDz-vo-M8I" kind="relationship" relationship="viewControllers" id="J6e-d4-9Ek"/>
+                        <segue destination="er3-ff-ans" kind="relationship" relationship="viewControllers" id="3Ok-of-yPN"/>
+                        <segue destination="R7J-Wj-It6" kind="relationship" relationship="viewControllers" id="pLW-Zb-1gE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZu-I5-3hf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1252" y="16"/>
-        </scene>
-        <!--OrderOnline-->
-        <scene sceneID="Dq5-ct-WsL">
-            <objects>
-                <viewController title="OrderOnline" id="R68-JU-3Ea" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="m7n-dk-3lB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.98847224879999995" blue="0.73883648079999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="nfs-0R-fAN"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="即時訂購" image="orderonline" selectedImage="orderonline_selected" id="oga-kk-JYe"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9WQ-Vh-OB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="361" y="1826"/>
+            <point key="canvasLocation" x="-521" y="152"/>
         </scene>
     </scenes>
     <resources>
+        <image name="logo" width="172" height="172"/>
         <image name="member" width="37.5" height="37.5"/>
         <image name="member_selected" width="37.5" height="37.5"/>
-        <image name="news" width="37.5" height="37.5"/>
-        <image name="news_selected" width="37.5" height="37.5"/>
-        <image name="orderonline" width="37.5" height="37.5"/>
-        <image name="orderonline_selected" width="37.5" height="37.5"/>
-        <image name="products" width="37.5" height="37.5"/>
-        <image name="products_selected" width="37.5" height="37.5"/>
     </resources>
 </document>
