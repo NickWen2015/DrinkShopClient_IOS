@@ -19,6 +19,16 @@
             </objects>
             <point key="canvasLocation" x="108" y="-231"/>
         </scene>
+        <!--ProductNavigationView-->
+        <scene sceneID="GSi-ec-SLw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProductPage" referencedIdentifier="ProductNavigationView" id="yD2-yC-1Vk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="fZB-EU-pfr"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Py-fa-Cnk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="99" y="-82"/>
+        </scene>
         <!--MemberNavigationView-->
         <scene sceneID="3st-Pp-bl7">
             <objects>
@@ -147,6 +157,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="YDz-vo-M8I" kind="relationship" relationship="viewControllers" id="J6e-d4-9Ek"/>
+                        <segue destination="yD2-yC-1Vk" kind="relationship" relationship="viewControllers" id="JtD-JB-Hbq"/>
                         <segue destination="er3-ff-ans" kind="relationship" relationship="viewControllers" id="3Ok-of-yPN"/>
                         <segue destination="R7J-Wj-It6" kind="relationship" relationship="viewControllers" id="pLW-Zb-1gE"/>
                     </connections>
