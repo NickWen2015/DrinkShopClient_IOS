@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B14B09421969C0500EE6BC4 /* MemberFunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B14B09321969C0500EE6BC4 /* MemberFunctionViewController.swift */; };
+		2B20D9A32193FC80007EF9A9 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20D9A12193FC80007EF9A9 /* Communicator.swift */; };
+		2B20D9A42193FC80007EF9A9 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20D9A22193FC80007EF9A9 /* UIImage+Resize.swift */; };
 		2B310E56216A35A400EBAEA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B310E55216A35A400EBAEA2 /* AppDelegate.swift */; };
 		2B310E58216A35A400EBAEA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B310E57216A35A400EBAEA2 /* ViewController.swift */; };
 		2B310E5B216A35A400EBAEA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B310E59216A35A400EBAEA2 /* Main.storyboard */; };
@@ -31,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B14B09321969C0500EE6BC4 /* MemberFunctionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberFunctionViewController.swift; sourceTree = "<group>"; };
+		2B20D9A12193FC80007EF9A9 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
+		2B20D9A22193FC80007EF9A9 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		2B310E52216A35A400EBAEA2 /* DrinkShopClient_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkShopClient_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B310E55216A35A400EBAEA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B310E57216A35A400EBAEA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +212,8 @@
 		2B71078D2193F36B0061CF64 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2B20D9A12193FC80007EF9A9 /* Communicator.swift */,
+				2B20D9A22193FC80007EF9A9 /* UIImage+Resize.swift */,
 				2CB6568B2193E7380086798A /* ColorHelper.swift */,
 				2BFE784D21900F42005CD0D9 /* Common.swift */,
 			);
@@ -225,6 +233,7 @@
 			children = (
 				2B310E57216A35A400EBAEA2 /* ViewController.swift */,
 				2B5E322E2193398B00A04A50 /* MemberViewController.swift */,
+				2B14B09321969C0500EE6BC4 /* MemberFunctionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -425,11 +434,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B20D9A32193FC80007EF9A9 /* Communicator.swift in Sources */,
 				2B5E322F2193398B00A04A50 /* MemberViewController.swift in Sources */,
 				2BFE784E21900F42005CD0D9 /* Common.swift in Sources */,
+				2B20D9A42193FC80007EF9A9 /* UIImage+Resize.swift in Sources */,
 				2CB6568D2193E7380086798A /* ProductPageViewController.swift in Sources */,
 				2CB6568E2193E7380086798A /* ColorHelper.swift in Sources */,
 				2CB6568C2193E7380086798A /* CategoryView.swift in Sources */,
+				2B14B09421969C0500EE6BC4 /* MemberFunctionViewController.swift in Sources */,
 				2B310E58216A35A400EBAEA2 /* ViewController.swift in Sources */,
 				2BFE784C218FFF3F005CD0D9 /* Member.swift in Sources */,
 				2B310E56216A35A400EBAEA2 /* AppDelegate.swift in Sources */,
@@ -581,6 +593,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DrinkShopClient_IOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -602,6 +615,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DrinkShopClient_IOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

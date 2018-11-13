@@ -18,8 +18,7 @@ class ProductPageViewController: UIViewController{
         var categoryCount = 1
         let categoryTitle = ["熱門商品", "超級熱門商品排行榜", "全新上市", "限量推出", "季節限定"]
         let categoryColor = [ColorHelper.red, ColorHelper.orange, ColorHelper.yellow, ColorHelper.green, ColorHelper.blue, ColorHelper.indigo, ColorHelper.purple]
-        
-        
+    
         
         // 產生類別按鈕
         for categoryTitle in categoryTitle {
@@ -28,9 +27,6 @@ class ProductPageViewController: UIViewController{
             categoryCount += 1
             categoryView.add(target: self, categoryItem: categoryItem)
         }
-        
-        
-        
     }
     
     // button 的觸發事件
