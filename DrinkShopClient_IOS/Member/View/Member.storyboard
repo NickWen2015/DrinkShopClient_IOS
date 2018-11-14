@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Member View Controller-->
+        <!--Member Function View Controller-->
         <scene sceneID="zVf-hW-E0W">
             <objects>
-                <viewController storyboardIdentifier="MemberFunctionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CkU-uZ-inK" customClass="MemberViewController" customModule="DrinkShopClient_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemberFunctionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CkU-uZ-inK" customClass="MemberFunctionViewController" customModule="DrinkShopClient_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ubf-3U-Ca8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -477,7 +477,7 @@
         <!--Member-->
         <scene sceneID="3Be-qp-tqc">
             <objects>
-                <viewController title="Member" id="5Q0-b5-aPE" customClass="MemberViewController" customModule="DrinkShopClient_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemberView" title="Member" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Q0-b5-aPE" customClass="MemberViewController" customModule="DrinkShopClient_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="on5-rr-NPV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

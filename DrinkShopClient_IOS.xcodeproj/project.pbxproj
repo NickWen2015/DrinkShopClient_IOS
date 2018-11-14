@@ -19,12 +19,12 @@
 		2B5E322F2193398B00A04A50 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E322E2193398B00A04A50 /* MemberViewController.swift */; };
 		2B5E32362193C9E100A04A50 /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E32352193C9E100A04A50 /* Activities.storyboard */; };
 		2B5E32402193D3F700A04A50 /* ChatRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E323F2193D3F700A04A50 /* ChatRoom.storyboard */; };
-		2BDA0348219AC3D100367B27 /* 1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA0347219AC3D100367B27 /* 1.swift */; };
 		2BDA034A219AC40C00367B27 /* 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA0349219AC40C00367B27 /* 2.swift */; };
 		2BDA034C219AC41C00367B27 /* 1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA034B219AC41C00367B27 /* 1.swift */; };
 		2BDA034E219AC42F00367B27 /* 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA034D219AC42F00367B27 /* 2.swift */; };
 		2BDA0350219AC43E00367B27 /* 1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA034F219AC43E00367B27 /* 1.swift */; };
 		2BDA0352219AC44900367B27 /* 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA0351219AC44900367B27 /* 3.swift */; };
+		2BDA0355219BB06300367B27 /* 10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA0354219BB06300367B27 /* 10.swift */; };
 		2BFE784C218FFF3F005CD0D9 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE784B218FFF3F005CD0D9 /* Member.swift */; };
 		2BFE784E21900F42005CD0D9 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE784D21900F42005CD0D9 /* Common.swift */; };
 		2CB6567D2193E61B0086798A /* ProductPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB6567C2193E61B0086798A /* ProductPage.storyboard */; };
@@ -54,12 +54,12 @@
 		2B5E322E2193398B00A04A50 /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		2B5E32352193C9E100A04A50 /* Activities.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
 		2B5E323F2193D3F700A04A50 /* ChatRoom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatRoom.storyboard; sourceTree = "<group>"; };
-		2BDA0347219AC3D100367B27 /* 1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = 1.swift; path = ../../../../../1.swift; sourceTree = "<group>"; };
 		2BDA0349219AC40C00367B27 /* 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2.swift; sourceTree = "<group>"; };
 		2BDA034B219AC41C00367B27 /* 1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1.swift; sourceTree = "<group>"; };
 		2BDA034D219AC42F00367B27 /* 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2.swift; sourceTree = "<group>"; };
 		2BDA034F219AC43E00367B27 /* 1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1.swift; sourceTree = "<group>"; };
 		2BDA0351219AC44900367B27 /* 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3.swift; sourceTree = "<group>"; };
+		2BDA0354219BB06300367B27 /* 10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 10.swift; sourceTree = "<group>"; };
 		2BFE784B218FFF3F005CD0D9 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		2BFE784D21900F42005CD0D9 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		2CB6567C2193E61B0086798A /* ProductPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductPage.storyboard; sourceTree = "<group>"; };
@@ -263,12 +263,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2BDA0353219BB05000367B27 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2BDA0354219BB06300367B27 /* 10.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2CB656772193E5910086798A /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				2BDA0353219BB05000367B27 /* Model */,
 				2CB6567E2193E6430086798A /* image */,
 				2CB6567B2193E6000086798A /* Controller */,
-				2CB6567A2193E5F80086798A /* Model */,
 				2CB656792193E5EC0086798A /* View */,
 			);
 			path = Product;
@@ -281,14 +289,6 @@
 				2CB656892193E7380086798A /* CategoryView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		2CB6567A2193E5F80086798A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				2BDA0347219AC3D100367B27 /* 1.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		2CB6567B2193E6000086798A /* Controller */ = {
@@ -456,7 +456,6 @@
 				2B5E322F2193398B00A04A50 /* MemberViewController.swift in Sources */,
 				2BFE784E21900F42005CD0D9 /* Common.swift in Sources */,
 				2BDA0350219AC43E00367B27 /* 1.swift in Sources */,
-				2BDA0348219AC3D100367B27 /* 1.swift in Sources */,
 				2BDA034A219AC40C00367B27 /* 2.swift in Sources */,
 				2B20D9A42193FC80007EF9A9 /* UIImage+Resize.swift in Sources */,
 				2BDA034E219AC42F00367B27 /* 2.swift in Sources */,
@@ -464,6 +463,7 @@
 				2BDA034C219AC41C00367B27 /* 1.swift in Sources */,
 				2CB6568E2193E7380086798A /* ColorHelper.swift in Sources */,
 				2BDA0352219AC44900367B27 /* 3.swift in Sources */,
+				2BDA0355219BB06300367B27 /* 10.swift in Sources */,
 				2CB6568C2193E7380086798A /* CategoryView.swift in Sources */,
 				2B14B09421969C0500EE6BC4 /* MemberFunctionViewController.swift in Sources */,
 				2B310E58216A35A400EBAEA2 /* ViewController.swift in Sources */,
