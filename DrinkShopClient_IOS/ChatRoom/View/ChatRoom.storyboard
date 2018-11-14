@@ -12,7 +12,6 @@
         <!--OrderOnline-->
         <scene sceneID="565-fo-kPx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VkM-oi-Ar8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="OrderOnline" id="F5P-C3-273" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nrj-Ox-rl2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -22,6 +21,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="U9c-FO-G0r"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VkM-oi-Ar8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1097" y="961"/>
         </scene>
@@ -29,7 +29,7 @@
         <scene sceneID="bfp-fp-pNS">
             <objects>
                 <navigationController storyboardIdentifier="ChatRoomNavigationView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c0O-ja-Hm5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="即時訂購" image="orderonline" selectedImage="orderonline_selected" id="gYi-RP-mVm"/>
+                    <tabBarItem key="tabBarItem" title="即時訂購" image="orderonline" selectedImage="orderonline" id="gYi-RP-mVm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xdi-Wb-FdA">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -47,6 +47,5 @@
     </scenes>
     <resources>
         <image name="orderonline" width="37.5" height="37.5"/>
-        <image name="orderonline_selected" width="37.5" height="37.5"/>
     </resources>
 </document>

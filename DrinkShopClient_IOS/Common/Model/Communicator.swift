@@ -69,20 +69,16 @@ class Communicator {  //Singleton instance 單一實例模式
     func doPost(urlString:String, parameters:[String: Any], completion: @escaping DoneHandler) {
         
         Alamofire.request(urlString, method: HTTPMethod.post , parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
-            self.handleJSON(response: response, completion: completion)
+            self.handleJSONArray(response: response, completion: completion)
         }
     }
     
 
     // 處理Server回傳的JSON
-    private func handleJSON(response: DataResponse<Any>, completion: DoneHandler) {
+    private func handleJSONArray(response: DataResponse<Any>, completion: DoneHandler) {
         switch response.result {
-        case .success(var json)://enum 夾帶參數
+        case .success(let json)://enum 夾帶參數
             print("Get success response: \(json)")
-            if json as? Int == 1 || json as? Int == 0 {
-                json = ["result": json]
-            }
-            print("Change json: \(json)")
 
             completion(json, nil)
 

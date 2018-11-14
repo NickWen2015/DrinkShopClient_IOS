@@ -10,5 +10,5 @@ import Foundation
 
 struct Common {
     //連線SERVER_URL
-   static let SERVER_URL = "http://192.168.50.86:8080/DrinkShop_Web/"
+   static let SERVER_URL = "http://192.168.50.102:8080/DrinkShop_Web/"
 }

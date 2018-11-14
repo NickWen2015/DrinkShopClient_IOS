@@ -15,23 +15,21 @@ class ProductPageViewController: UIViewController {
     @IBOutlet weak var categoryView: CategoryView!
     @IBOutlet weak var borderColor: UIView!
     
+    var categoryArray: [Category] = []
+    
     let communicator = Communicator.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showAllCategory()
-
-        var categoryTag = 1
-        let categoryTitle = ["熱門商品", "超級熱門商品排行榜", "全新上市", "限量推出", "季節限定"]
-        let categoryColor = [ColorHelper.red, ColorHelper.orange, ColorHelper.yellow, ColorHelper.green, ColorHelper.blue, ColorHelper.indigo, ColorHelper.purple]
         
-        // 產生類別按鈕
-        for categoryTitle in categoryTitle {
-            let colorIndex = categoryTag % categoryColor.count
-            let categoryItem = CategoryItem.init(tag: categoryTag, title: categoryTitle, backgroundColor: categoryColor[colorIndex])
-            categoryTag += 1
-            categoryView.add(target: self, categoryItem: categoryItem)
-        }
+        // 準備資料
+        showAllCategory()
+        
+        
+        
+        
+        
+        
     }
     
     // button 的觸發事件
@@ -39,6 +37,10 @@ class ProductPageViewController: UIViewController {
         borderColor.backgroundColor = sender.backgroundColor
     }
 
+}
+
+extension ProductPageViewController {
+    // 準備全部商品資料
 }
 
 extension ProductPageViewController {
@@ -68,12 +70,36 @@ extension ProductPageViewController {
                 print("\(#line) Fail to decode jsonData.")
                 return
             }
-            for c in categoryObject {
-                printHelper.println(tag: TAG, line: #line, "categoryObject: \(c)")
-            }
+            
+            self.categoryArray = categoryObject
+            printHelper.println(tag: TAG, line: #line, "SET categoryArray OK.")
+
+            // 將資料與UI相連
+            self.linkCategoryUI()
             
         }
     }
+    
+    // 將Category資料與UI相連
+    func linkCategoryUI() {
+        var categoryCount = 0
+        let categoryColor = [ColorHelper.red, ColorHelper.orange, ColorHelper.yellow, ColorHelper.green, ColorHelper.blue, ColorHelper.indigo, ColorHelper.purple]
+        
+        // 產生類別按鈕
+        for category in categoryArray {
+            let colorIndex = categoryCount % (categoryArray.count - 1)
+            let categoryItem = CategoryItem.init(tag: category.id, title: category.name, backgroundColor: categoryColor[colorIndex])
+            categoryCount += 1
+            categoryView.add(target: self, categoryItem: categoryItem)
+        }
+    }
+}
+
+extension ProductPageViewController {
+    
+    // 顯示選擇類別項目
+    
+    
 }
 
 
