@@ -14,47 +14,46 @@ class MemberFunctionViewController: UIViewController {
         super.viewDidLoad()
         
         //取偏好設定判斷是否已登入
-        if let isLogin = UserDefaults.standard.object(forKey: "isLogin") as? Bool {
+        if let isLogin = UserDefaults.standard.value(forKey: "isLogin") as? Bool {
             if(isLogin){
                 print("已登入")
             }else{
                 print("未登入")
-            }
-        } else {//isLogin == nil (未登入)
-            print("沒有偏好設定")
-            Communicator.shared.isUserValid(name: "nick", password: "0000") {result,error in
-                
-                guard let result = result else {
-                   
-                    return
+                //呼叫登入畫面
+                if let controller = loginController() {
+                    present(controller, animated: true, completion: nil)
                 }
-                print("result: \(result)")
+            }
+        } else {//isLogin == nil (沒有登入狀態)
+            print("沒有偏好設定")
+            //呼叫登入畫面
+            if let controller = loginController() {
+                present(controller, animated: true, completion: nil)
             }
             
-            let alertController = UIAlertController(title: "登入", message:
-                "登入成功！", preferredStyle: UIAlertController.Style.alert)
-            alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
-            self.present(alertController, animated: true, completion: nil)
             
-          
-//            let memberVC = MemberViewController()
-//            self.present(memberVC, animated: true, completion: nil)
-//            let memberStoryboard = UIStoryboard(name:"MemberView", bundle: nil)
-//            let memberVC = memberStoryboard.instantiateViewController(withIdentifier: "MemberViewController") as! ViewController
-//            self.present(memberVC, animated: true, completion: nil)
+        
         }
         
     }
     
-
-  
-}
-
-extension Communicator {
-    func isUserValid(name: String, password: String, completion: @escaping DoneHandler) -> Bool {
-        var isUserValid = false
-        let parameters: [String: Any] = [ACTION_KEY: "isUserValid", ACCOUNT_KEY: name, PASSWORD_KEY: password]
-        doPost(urlString: MEMBERSERVLET_URL, parameters: parameters, completion: completion)
-        return isUserValid
+    //按下登出按鈕
+    @IBAction func logoutBtnPressed(_ sender: UIBarButtonItem) {
+        
+        //清除偏好設定的登入狀態
+        UserDefaults.standard.set(false, forKey: "isLogin")
+        
+        //呼叫登入頁
+        if let controller = loginController() {
+            present(controller, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func loginController() -> UIViewController? {
+        let controller: UIViewController = ((storyboard?.instantiateViewController(withIdentifier: "MemberView"))!)
+        return controller
     }
 }
+
+
