@@ -15,14 +15,19 @@ class ProductPageViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let communicator = Communicator.shared
+        communicator.getAllCategory { (result, error) in
+            
+        }
+        
         var categoryCount = 1
         let categoryTitle = ["熱門商品", "超級熱門商品排行榜", "全新上市", "限量推出", "季節限定"]
         let categoryColor = [ColorHelper.red, ColorHelper.orange, ColorHelper.yellow, ColorHelper.green, ColorHelper.blue, ColorHelper.indigo, ColorHelper.purple]
-    
         
         // 產生類別按鈕
         for categoryTitle in categoryTitle {
-            let colorIndex = categoryCount % 7
+            let colorIndex = categoryCount % categoryColor.count
             let categoryItem = CategoryItem.init(tag: categoryCount, title: categoryTitle, backgroundColor: categoryColor[colorIndex])
             categoryCount += 1
             categoryView.add(target: self, categoryItem: categoryItem)
@@ -35,4 +40,17 @@ class ProductPageViewController: UIViewController{
     }
 
 }
+
+class CY {
+    static let BASEURL = Common.SERVER_URL
+    static let PRODUCTSERVLET_URL = BASEURL + "ProductServlet"
+}
+
+extension Communicator {
+    func getAllCategory(completion: @escaping DoneHandler) {
+        let parameters: [String: Any] = [ACTION_KEY: "getAllCategory"]
+        doPost(urlString: CY.PRODUCTSERVLET_URL, parameters: parameters, completion: completion)
+    }
+}
+
 

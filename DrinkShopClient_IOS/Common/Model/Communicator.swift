@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 
+
 //共用參數
 let ACCOUNT_KEY = "name"
 let PASSWORD_KEY = "password"
@@ -17,13 +18,14 @@ let ID_KEY = "id"
 let IMAGESIZE_KEY = "imageSize"
 
 
+
 //result:[String:Any] is dictionary declaration.
 typealias DoneHandler = (_ result:[String:Any]?, _ error:Error?) -> Void
 typealias DownloadDoneHandler = (_ result:Data?, _ error:Error?) -> Void
 
 
 class Communicator {  //Singleton instance 單一實例模式
-    
+
     // SERVER_URL 常數
     static let BASEURL = Common.SERVER_URL
     let MEMBERSERVLET_URL = BASEURL + "MemberServlet"
@@ -71,6 +73,7 @@ class Communicator {  //Singleton instance 單一實例模式
         }
     }
     
+
     // 處理Server回傳的JSON
     private func handleJSON(response: DataResponse<Any>, completion: DoneHandler) {
         switch response.result {
@@ -87,7 +90,7 @@ class Communicator {  //Singleton instance 單一實例模式
             }
             
             completion(finalJson, nil)
-            
+
         case .failure(let error):
             print("Get success error: \(error)")
             completion(nil, error)

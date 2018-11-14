@@ -19,7 +19,7 @@ class CategoryView: UIScrollView {
     private let padding: CGFloat = 0.0
     public var lastViewX: CGFloat = 0.0
     private let buttonPadding = 0
-    
+     
     func add(target: UIViewController, categoryItem: CategoryItem) {
         
         // Creat and add Button.
