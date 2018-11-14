@@ -20,7 +20,7 @@ let IMAGESIZE_KEY = "imageSize"
 
 
 //result:[String:Any] is dictionary declaration.
-typealias DoneHandler = (_ result:[String:Any]?, _ error:Error?) -> Void
+typealias DoneHandler = (_ result: Any?, _ error:Error?) -> Void
 typealias DownloadDoneHandler = (_ result:Data?, _ error:Error?) -> Void
 
 
@@ -83,13 +83,8 @@ class Communicator {  //Singleton instance 單一實例模式
                 json = ["result": json]
             }
             print("Change json: \(json)")
-            guard let finalJson = json as? [String: Any] else {
-                let error = NSError(domain: "Invalid JSON object.", code: -1, userInfo: nil)//JSON 解不出來
-                completion(nil, error)
-                return
-            }
-            
-            completion(finalJson, nil)
+
+            completion(json, nil)
 
         case .failure(let error):
             print("Get success error: \(error)")
