@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Member {
+struct Member: Codable {
     let member_id: Int
     let member_account: String
     var member_password: String
@@ -21,11 +21,4 @@ struct Member {
     var member_status:String
 }
 
-class MemberAuth: Codable {
-    let SERVLET: String = "/MemberServlet"
-    func isUserValid(name: String, password: String) -> Bool {
-        let url = Common.SERVER_URL + SERVLET
-        
-        return true
-    }
-}
+
