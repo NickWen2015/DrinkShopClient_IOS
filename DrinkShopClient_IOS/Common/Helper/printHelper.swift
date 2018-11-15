@@ -7,8 +7,8 @@
 //
 
 // 範例
-// 在 improt 底下建立 TAG
-// let TAG = "ProductPageViewController"
+// 在 class 內建立 全域變數 TAG
+// static let TAG = "ProductPageViewController"
 // printHelper.println(tag: TAG, line: #line, "MAG")
 
 // 輸出結果
@@ -19,6 +19,6 @@ import Foundation
 
 final class printHelper {
     static func println(tag: String, line: Int, _ msg: String) {
-        print("在 \(tag) 的 \(#line) 行,\n訊息：\(msg) ")
+        print("在 \(tag) 的 \(line) 行,\n訊息：\(msg) ")
     }
 }
