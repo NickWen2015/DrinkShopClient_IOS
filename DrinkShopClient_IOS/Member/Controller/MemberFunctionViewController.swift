@@ -9,13 +9,15 @@
 import UIKit
 
 class MemberFunctionViewController: UIViewController {
-
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //取偏好設定判斷是否已登入
         if let isLogin = UserDefaults.standard.value(forKey: "isLogin") as? Bool {
             if(isLogin){
+//                printHelper.println(tag: TAG, line: #line, "已登入")
                 print("已登入")
             }else{
                 print("未登入")
@@ -48,6 +50,11 @@ class MemberFunctionViewController: UIViewController {
             present(controller, animated: true, completion: nil)
         }
         
+    }
+    
+    @IBAction func unwindToMemberFunctionViewController(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
     }
     
     func loginController() -> UIViewController? {

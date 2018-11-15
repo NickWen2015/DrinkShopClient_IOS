@@ -579,9 +579,11 @@
                     <connections>
                         <outlet property="accountTextField" destination="fTd-hT-pzw" id="pCB-bm-GUn"/>
                         <outlet property="passwordTextField" destination="tQJ-Zj-2Lf" id="Xws-N7-cFZ"/>
+                        <segue destination="6cu-mt-Xcx" kind="unwind" identifier="unwindToMemberFunction" unwindAction="unwindToMemberFunctionViewController:" id="R8j-Pf-8qk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNy-K7-5bI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6cu-mt-Xcx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="569" y="-708"/>
         </scene>

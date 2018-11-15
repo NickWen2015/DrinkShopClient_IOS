@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MemberViewController: UIViewController {
 
     @IBOutlet weak var accountTextField: UITextField!
@@ -15,7 +16,7 @@ class MemberViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Common.USER_PAGE_TAG = "123"
         // Do any additional setup after loading the view.
     }
     
@@ -23,6 +24,8 @@ class MemberViewController: UIViewController {
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         let account: String = accountTextField.text!
         let password: String = passwordTextField.text!
+        var memberJsonInfo: Any = ""
+        
         guard account.count != 0 && password.count != 0 else {
             let alertController = UIAlertController(title: "帳號資料空白", message:
                 "帳號或密碼不可留空", preferredStyle: UIAlertController.Style.alert)
@@ -32,37 +35,43 @@ class MemberViewController: UIViewController {
             return
         }
         
-        Communicator.shared.isUserValid(name: account, password: password) {result, error in
+       Communicator.shared.isUserValid(name: account, password: password) {result, error in
             
-            guard let result = result, let loginStatus = result.first?.value as? Int else {
+            print("result: \(String(describing: result))")
+            guard let loginStatus = result as? Int else {
                 assertionFailure("login fail.")
                 return
             }
             
             
-            if loginStatus == 1 {//["result": 1]
+            if loginStatus == 1 {
                 //跳出登入成功視窗
                 let alertController = UIAlertController(title: "登入", message:
                     "登入成功！", preferredStyle: UIAlertController.Style.alert)
                 alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
                 self.present(alertController, animated: true, completion: nil)
                 
-                //取回會員物件並將登入狀態存入偏好設定
-//                var memberInfo: Member? = nil
+                //取回會員物件
                 Communicator.shared.findMemberByAccountAndPassword(name: account, password: password, completion: { (memberResult, error) in
                     print("memberResult: \(memberResult)")
                     guard let memberResult = memberResult else {
                         assertionFailure("findMemberByAccountAndPassword fail.")
                         return
                     }
-                    //memberInfo = try? decoder.decode(Member.self, from: memberResult)
-                    print("memberResult!: \(memberResult)")
+                    //將登入狀態存入偏好設定
+                    UserDefaults.standard.set(true, forKey: "isLogin")
+                    
+                    memberJsonInfo = memberResult
+                    print("memberJsonInfo1: \(memberJsonInfo)")
+                    
+                    
+    self.performSegue(withIdentifier: "unwindToMemberFunction", sender: self)
+                    
+                   
                 })
                 
                 
-                UserDefaults.standard.set(true, forKey: "isLogin")
-               
-                //關閉登入畫面
+                
                 
                 
             } else {
@@ -74,6 +83,8 @@ class MemberViewController: UIViewController {
             
         }
         
+        
+       
     }
     
     //會員註冊
@@ -94,6 +105,7 @@ extension Communicator {
     
     func findMemberByAccountAndPassword(name: String, password: String, completion: @escaping DoneHandler) {
         let parameters: [String: Any] = [ACTION_KEY: "findMemberByAccountAndPassword", ACCOUNT_KEY: name, PASSWORD_KEY: password]
-        doPost(urlString: MEMBERSERVLET_URL, parameters: parameters, completion: completion)
+        return doPost(urlString: MEMBERSERVLET_URL, parameters: parameters, completion: completion)
+        
     }
 }
