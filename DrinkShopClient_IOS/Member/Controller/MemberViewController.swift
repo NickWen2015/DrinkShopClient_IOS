@@ -10,21 +10,25 @@ import UIKit
 
 
 class MemberViewController: UIViewController {
-
+    
     @IBOutlet weak var accountTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var member: Member?
+    var login: Login!
+    
+    let communicator = Communicator.shared
+
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        Common.USER_PAGE_TAG = "123"
-        // Do any additional setup after loading the view.
+       super.viewDidLoad()
+       login = Login(view: self)
     }
     
     //會員登入
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         let account: String = accountTextField.text!
         let password: String = passwordTextField.text!
-        var memberJsonInfo: Any = ""
+//        var memberJsonInfo: Any = ""
         
         guard account.count != 0 && password.count != 0 else {
             let alertController = UIAlertController(title: "帳號資料空白", message:
@@ -35,9 +39,15 @@ class MemberViewController: UIViewController {
             return
         }
         
-       Communicator.shared.isUserValid(name: account, password: password) {result, error in
+       communicator.isUserValid(name: account, password: password) {result, error in
             
-            print("result: \(String(describing: result))")
+            print("result: \(result ?? ""))")
+        
+            if let error = error {
+                print("isUserValid fail: \(error)")
+                return
+            }
+        
             guard let loginStatus = result as? Int else {
                 assertionFailure("login fail.")
                 return
@@ -48,31 +58,45 @@ class MemberViewController: UIViewController {
                 //跳出登入成功視窗
                 let alertController = UIAlertController(title: "登入", message:
                     "登入成功！", preferredStyle: UIAlertController.Style.alert)
-                alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
-                self.present(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: false, completion: nil)
                 
                 //取回會員物件
-                Communicator.shared.findMemberByAccountAndPassword(name: account, password: password, completion: { (memberResult, error) in
-                    print("memberResult: \(memberResult)")
-                    guard let memberResult = memberResult else {
-                        assertionFailure("findMemberByAccountAndPassword fail.")
+                self.communicator.findMemberByAccountAndPassword(name: account, password: password, completion: { (memberJson, error) in
+                    
+                    if let error = error {
+                        print("findMemberByAccountAndPassword fail: \(error)")
                         return
                     }
+                    
+                    
+                    guard let memberJson = memberJson as? [String: Any] else {
+                        assertionFailure("Invalid memberJson object.")
+                        return
+                    }
+                    
+                    
+                    //Decode as Member.
+                    guard let jsonData = try? JSONSerialization.data(withJSONObject: memberJson, options: .prettyPrinted) else {
+                        print("Fail to generate jsonData.")
+                        return
+                    }
+
+                    let decoder = JSONDecoder()
+                    guard let memberObject = try? decoder.decode(Member.self, from: jsonData)  else {
+                        print("Fail to decode jsonData.")
+                        return
+                    }
+                    let member_id = memberObject.member_id
+                    let member_name = memberObject.member_name
+                    
                     //將登入狀態存入偏好設定
-                    UserDefaults.standard.set(true, forKey: "isLogin")
+                    self.login.setUserDefaultsLogin(member_id: member_id, member_name: member_name)
                     
-                    memberJsonInfo = memberResult
-                    print("memberJsonInfo1: \(memberJsonInfo)")
-                    
-                    
-    self.performSegue(withIdentifier: "unwindToMemberFunction", sender: self)
-                    
-                   
+//                    self.member = memberObject
+                    //開逃生門到會員頁
+                    self.performSegue(withIdentifier: "CancelForMemberFunction", sender: self)
+                    return
                 })
-                
-                
-                
-                
                 
             } else {
                 let alertController = UIAlertController(title: "登入", message:
@@ -80,10 +104,7 @@ class MemberViewController: UIViewController {
                 alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
                 self.present(alertController, animated: true, completion: nil)
             }
-            
         }
-        
-        
        
     }
     
@@ -92,20 +113,18 @@ class MemberViewController: UIViewController {
     
     }
     
-   
-}
-
-extension Communicator {
-    func isUserValid(name: String, password: String, completion: @escaping DoneHandler) -> Bool {
-        let isUserValid = false
-        let parameters: [String: Any] = [ACTION_KEY: "isUserValid", ACCOUNT_KEY: name, PASSWORD_KEY: password]
-        doPost(urlString: MEMBERSERVLET_URL, parameters: parameters, completion: completion)
-        return isUserValid
+    @IBAction func cancelBarBtnPressed(_ sender: UIBarButtonItem) {
+        //開逃生門到活動頁
+        PrintHelper.println(tag: "MemberViewController", line: #line, "cancelBarBtnPressed.")
+        self.performSegue(withIdentifier: "CancelForActivities", sender: self)
     }
     
-    func findMemberByAccountAndPassword(name: String, password: String, completion: @escaping DoneHandler) {
-        let parameters: [String: Any] = [ACTION_KEY: "findMemberByAccountAndPassword", ACCOUNT_KEY: name, PASSWORD_KEY: password]
-        return doPost(urlString: MEMBERSERVLET_URL, parameters: parameters, completion: completion)
-        
-    }
+    
+//    deinit {
+//        login = nil
+//        PrintHelper.println(tag: "MemberViewController", line: #line, "login obj is deinit: \(login)")
+//    }
+    
 }
+
+

@@ -9,58 +9,74 @@
 import UIKit
 
 class MemberFunctionViewController: UIViewController {
-   
+    
+    @IBOutlet weak var logoutBarBtn: UIBarButtonItem!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    var member: Member?
+    
+    var login: Login!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        login = Login(view: self)
         
-        //取偏好設定判斷是否已登入
-        if let isLogin = UserDefaults.standard.value(forKey: "isLogin") as? Bool {
-            if(isLogin){
-//                printHelper.println(tag: TAG, line: #line, "已登入")
-                print("已登入")
-            }else{
-                print("未登入")
-                //呼叫登入畫面
-                if let controller = loginController() {
-                    present(controller, animated: true, completion: nil)
-                }
-            }
-        } else {//isLogin == nil (沒有登入狀態)
-            print("沒有偏好設定")
-            //呼叫登入畫面
-            if let controller = loginController() {
-                present(controller, animated: true, completion: nil)
-            }
-            
-            
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        login = Login(view: self)
         
+        if let isLogin = UserDefaults.standard.value(forKey: "isLogin") as? Bool, let member_name = UserDefaults.standard.value(forKey: "member_name") as? String {
+            if(isLogin) {
+                logoutBarBtn.title = "登出"
+                nameLabel.text = member_name
+            } else {
+                login.login()
+                logoutBarBtn.title = "登入"
+            }
+        } else {
+            login.login()
+            logoutBarBtn.title = "登入"
         }
-        
     }
     
     //按下登出按鈕
     @IBAction func logoutBtnPressed(_ sender: UIBarButtonItem) {
-        
-        //清除偏好設定的登入狀態
-        UserDefaults.standard.set(false, forKey: "isLogin")
+       print("已登出")
+       //清除偏好設定的登入狀態
+       login.setUserDefaultsLogout()
+       nameLabel.text = "未登入"
+       logoutBarBtn.title = "登入"
         
         //呼叫登入頁
-        if let controller = loginController() {
-            present(controller, animated: true, completion: nil)
-        }
-        
+        login.login()
     }
     
     @IBAction func unwindToMemberFunctionViewController(_ unwindSegue: UIStoryboardSegue) {
-        let sourceViewController = unwindSegue.source
-        // Use data from the view controller which initiated the unwind segue
+        
+        PrintHelper.println(tag: "MemberFunctionViewController", line: #line, "unwindToMemberFunctionViewController.")
+        
+        if let isLogin = UserDefaults.standard.value(forKey: "isLogin") as? Bool,  let member_name = UserDefaults.standard.value(forKey: "member_name") as? String {
+        if(isLogin) {
+            logoutBarBtn.title = "登出"
+            nameLabel.text = member_name
+        }else {
+            login.login()
+            logoutBarBtn.title = "登入"
+        }
+      
+       }
     }
+
     
-    func loginController() -> UIViewController? {
-        let controller: UIViewController = ((storyboard?.instantiateViewController(withIdentifier: "MemberView"))!)
-        return controller
-    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender:
+//        Any?) {
+//        print("Cancel UIStoryboardSegue")
+//    }
+
+    
 }
 
 

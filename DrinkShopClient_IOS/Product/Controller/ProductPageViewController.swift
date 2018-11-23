@@ -47,16 +47,16 @@ extension ProductPageViewController {
     func showAllCategory() {
         communicator.getAllCategory { (result, error) in
             if let error = error {
-                printHelper.println(tag: ProductPageViewController.TAG, line: #line, "Error: \(error)")
+                PrintHelper.println(tag: ProductPageViewController.TAG, line: #line, "Error: \(error)")
                 return
             }
             
             guard let result = result else {
-                printHelper.println(tag: ProductPageViewController.TAG, line: #line, "result is nil")
+                PrintHelper.println(tag: ProductPageViewController.TAG, line: #line, "result is nil")
                 return
             }
             
-            printHelper.println(tag: ProductPageViewController.TAG, line: #line, "result OK.")
+            PrintHelper.println(tag: ProductPageViewController.TAG, line: #line, "result OK.")
             
             guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else {
                 print("\(#line) Fail to generate jsonData.")
@@ -70,7 +70,7 @@ extension ProductPageViewController {
             }
             
             self.categoryArray = categoryObject
-            printHelper.println(tag: ProductPageViewController.TAG, line: #line, "SET categoryArray OK.")
+            PrintHelper.println(tag: ProductPageViewController.TAG, line: #line, "SET categoryArray OK.")
 
             // 將資料與UI相連
             self.linkCategoryUI()

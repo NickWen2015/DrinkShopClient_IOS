@@ -11,11 +11,14 @@ import Alamofire
 
 
 //共用參數
-let ACCOUNT_KEY = "name"
-let PASSWORD_KEY = "password"
 let ACTION_KEY = "action"
 let ID_KEY = "id"
 let IMAGESIZE_KEY = "imageSize"
+
+//會員用到的參數
+let ACCOUNT_KEY = "name"
+let PASSWORD_KEY = "password"
+let MEMBER_ID_KEY = "member_id"
 
 
 
