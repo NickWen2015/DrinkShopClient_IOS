@@ -9,15 +9,9 @@
 import Foundation
 
 struct Category: Codable {
-    let id: Int
-    let name: String
+    var id: Int?
+    let name: String?
     
-    var dictionaryRepresentation: [String: Any] {
-        return [
-            "category_id" : id,
-            "category_name" : name,
-        ]
-    }
 }
 
 extension Category {
