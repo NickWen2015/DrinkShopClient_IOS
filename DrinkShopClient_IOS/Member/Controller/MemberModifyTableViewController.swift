@@ -238,8 +238,10 @@ class MemberModifyTableViewController: UITableViewController {
                 //相關欄位存入偏好設定
                 self.login.setUserDefaultsLogin(member_id: self.member_id_value, member_name: member_name)
                 
+//                self.tableView.reloadData()
+                
                 //儲存按鈕消失
-                self.savaBarButtonItem.isEnabled = true
+                self.savaBarButtonItem.isEnabled = false
             } else {
                 let alertController = UIAlertController(title: "失敗", message:
                     "儲存失敗，請確認輸入資料否正確！", preferredStyle: UIAlertController.Style.alert)
