@@ -46,4 +46,12 @@ extension Communicator {
         let parameters: [String: Any] = [ACTION_KEY: "findById", MEMBER_ID_KEY: member_id]
         doPost(urlString: MEMBERSERVLET_URL, parameters: parameters, completion: completion)
     }
+    
+    //會員資料修改(資料送出)
+    func memberUpdate(member: String, completion: @escaping DoneHandler) {
+        //        let member: Member? = nil
+        
+        let parameters: [String: Any] = [ACTION_KEY: "memberUpdate", MEMBER_KEY: member]
+        doPost(urlString: MEMBERSERVLET_URL, parameters: parameters, completion: completion)
+    }
 }

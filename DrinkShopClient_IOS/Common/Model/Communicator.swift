@@ -19,6 +19,7 @@ let IMAGESIZE_KEY = "imageSize"
 let ACCOUNT_KEY = "name"
 let PASSWORD_KEY = "password"
 let MEMBER_ID_KEY = "member_id"
+let MEMBER_KEY = "member"
 
 
 

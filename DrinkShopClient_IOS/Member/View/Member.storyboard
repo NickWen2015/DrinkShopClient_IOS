@@ -575,6 +575,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingChangedBarButtonItemEnabled:" destination="k0u-Qj-2oy" eventType="editingDidEnd" id="T5q-k4-0Mr"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="密碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgH-Yk-GUd">
                                                     <rect key="frame" x="16" y="11" width="35" height="21"/>
@@ -606,6 +609,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingChangedBarButtonItemEnabled:" destination="k0u-Qj-2oy" eventType="editingDidEnd" id="kZS-AP-nBZ"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -630,6 +636,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingChangedBarButtonItemEnabled:" destination="k0u-Qj-2oy" eventType="editingDidEnd" id="LlF-S6-Woc"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -655,6 +664,9 @@
                                                         <segment title="男"/>
                                                         <segment title="女"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="editingChangedBarButtonItemEnabled:" destination="k0u-Qj-2oy" eventType="valueChanged" id="D1H-3b-4nj"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -688,6 +700,9 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="563302293.83356702">
                                                         <!--2018-11-07 16:51:33 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="editingChangedBarButtonItemEnabled:" destination="k0u-Qj-2oy" eventType="valueChanged" id="SJ8-VX-4tQ"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -718,6 +733,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingChangedBarButtonItemEnabled:" destination="k0u-Qj-2oy" eventType="editingDidEnd" id="44C-h5-0EG"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -742,6 +760,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingChangedBarButtonItemEnabled:" destination="k0u-Qj-2oy" eventType="editingDidEnd" id="Dqi-zg-AzS"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -766,6 +787,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingChangedBarButtonItemEnabled:" destination="k0u-Qj-2oy" eventType="editingDidEnd" id="2SD-SW-aKk"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -781,13 +805,13 @@
                     <navigationItem key="navigationItem" title="會員資料修改" id="mO3-ja-RbI">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ox0-ga-fXS">
                             <connections>
-                                <segue destination="XIT-oC-qgg" kind="unwind" identifier="Save" unwindAction="unwindToMemberFunctionViewController:" id="0KB-wz-mGN"/>
+                                <action selector="saveBarBtnPressed:" destination="k0u-Qj-2oy" id="lc4-bB-y2G"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="confrim_member_password_TextField" destination="039-20-iry" id="DQs-EY-uCP"/>
-                        <outlet property="member_account_TextField" destination="WLv-tL-9gK" id="Qa6-mU-wOg"/>
+                        <outlet property="member_account_TextField" destination="WLv-tL-9gK" id="NyH-MJ-v4u"/>
                         <outlet property="member_address_TextField" destination="8Ns-Ja-FcR" id="YGP-w5-hIm"/>
                         <outlet property="member_birthday_DatePicker" destination="tGV-e0-SbO" id="7jN-m1-X6J"/>
                         <outlet property="member_email_TextField" destination="i1M-gT-75S" id="2hX-jj-4oP"/>
@@ -795,9 +819,9 @@
                         <outlet property="member_name_TextField" destination="Esh-UF-ApB" id="Mb6-8Z-8wQ"/>
                         <outlet property="member_password_TextField" destination="nCl-q1-rTZ" id="3OH-bh-nBn"/>
                         <outlet property="member_sex_SegmentedControl" destination="IkW-5p-BsX" id="EDA-bD-cPv"/>
+                        <outlet property="savaBarButtonItem" destination="Ox0-ga-fXS" id="FdB-i7-1Sl"/>
                     </connections>
                 </tableViewController>
-                <exit id="XIT-oC-qgg" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0A2-Dk-VgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2585" y="-870"/>
@@ -1059,7 +1083,11 @@
                                 <segue destination="CeP-hj-YbM" kind="unwind" unwindAction="unwindToMemberViewController:" id="LA0-G7-dQZ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Lqy-XI-JN0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Lqy-XI-JN0">
+                            <connections>
+                                <action selector="saveBarBtnPressed:" destination="CeP-hj-YbM" id="Cz7-ve-A0K"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJx-J2-s2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
