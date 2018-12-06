@@ -40,7 +40,7 @@ class CategoryView: UIScrollView {
         
         button.addTarget(target, action: #selector(ProductPageViewController.buttonAction(_:)), for: .touchUpInside)
         
-        buttonCorners(button: button)
+//        buttonCorners(button: button)
         self.addSubview(button)
         self.contentSize = CGSize(width: lastViewX, height: self.frame.height)
 

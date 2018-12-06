@@ -16,25 +16,34 @@ class productListTableViewCell: UITableViewCell {
     @IBOutlet weak var productPriceL: UILabel!
     @IBOutlet weak var productPriceM: UILabel!
     @IBOutlet weak var productQuantity: UILabel!
+    @IBOutlet weak var productQuantityGroup: UIView!
     
-    var productList: Product? {
+    var productContent: Product? {
         didSet {
-            productName.text = String(productList!.getName())
-            productPriceL.text = String(productList!.getPriceL())
-            productPriceM.text = String(productList!.getPriceM())
+            productName.text = String(productContent!.getName())
+            productPriceL.text = String(productContent!.getPriceL())
+            productPriceM.text = String(productContent!.getPriceM())
         }
     }
+    
+    var productQuantityContent: Int = 0 {
+        didSet {
+            if productQuantityContent == 0 {
+                productQuantityGroup.isHidden = true
+            } else {
+                productQuantityGroup.isHidden = false
+                productQuantity.text = "\(productQuantityContent)"
+            }
+        }
+    }
+    
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // 圓角
-        setCornerRadius(view: productImage)
-        setCornerRadius(view: productBackground)
-    }
-    
-    func setCornerRadius(view: UIView) {
-        view.layer.cornerRadius = 10
-        view.layer.masksToBounds = true
+        UiHelper.setCornerRadius(view: productImage)
+        UiHelper.setCornerRadius(view: productBackground)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

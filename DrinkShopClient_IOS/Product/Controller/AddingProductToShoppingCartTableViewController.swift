@@ -7,74 +7,102 @@
 //
 
 import UIKit
+extension AddingProductToShoppingCartTableViewController:  AddingProductToShoppingCartTableFetchDataDelegate{
+    // 將初始值傳過來
+    func fetchData(size: Int, sugar: Int, temperature: Int) {
+        self.size = size - 1
+        self.sugar = sugar - 1
+        self.temperature = temperature - 1
+        // 設置初始畫面
+        selected(pickItems: sizePickItemImage, self.size)
+        selected(pickItems: sugarPickItemImage, self.sugar)
+        selected(pickItems: temperaturePickItemImage, self.temperature)
+    }
+}
 
 class AddingProductToShoppingCartTableViewController: UITableViewController {
+    
+    @IBOutlet var sizePickItemImage: [UIImageView]!
+    @IBOutlet var sugarPickItemImage: [UIImageView]!
+    @IBOutlet var temperaturePickItemImage: [UIImageView]!
 
+    private let SELECT_SIZE = 0
+    private let SELECT_SUGAR = 1
+    private let SELECT_TEMPERATURE = 2
+    
+    static var AddingProductVC: AddingProductToShoppingCartViewController!
+
+    var size = 0
+    var sugar = 0
+    var temperature = 0
+    
+    var delegate: AddingProductToShoppingCartFetchDataDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        AddingProductToShoppingCartViewController.AddingProductTableVC = self
     }
 
-    // MARK: - Table view data source
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    // tableView select Method.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectSection(indexPath)
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func viewDidDisappear(_ animated: Bool) {
+//        AddingProductToShoppingCartTableViewController.AddingProductVC = nil
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    // User Select Section
+    private func selectSection(_ indexPath: IndexPath) {
+        let section = indexPath.section
+        switch section {
+        case SELECT_SIZE:
+            size(row: indexPath.row)
+            break
+        case SELECT_SUGAR:
+            sugar(row: indexPath.row)
+            break
+        case SELECT_TEMPERATURE:
+            temperature(row: indexPath.row)
+            break
+        default:
+            break
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    // User Select Size
+    private func size(row selectItem: Int) {
+        size = selectItem
+        selected(pickItems: sizePickItemImage, selectItem)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    // User Select Sugar
+    private func sugar(row selectItem: Int) {
+        sugar = selectItem
+        selected(pickItems: sugarPickItemImage, selectItem)
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    // User Select Temperature
+    private func temperature(row selectItem: Int) {
+        temperature = selectItem
+        selected(pickItems: temperaturePickItemImage, selectItem)
     }
-    */
-
+    
+    // User Select Item
+    private func selected(pickItems: [UIImageView] ,_ selectItem: Int) {
+        for pickItem in pickItems {
+            if pickItem.tag == pickItems[selectItem].tag {
+                pickItem.image = UIImage(named: "img_product_select.png")
+                continue
+            }
+            pickItem.image = UIImage(named: "img_product_non_select.png")
+        }
+        
+        // return the result to AddingProductVC.
+        self.delegate = AddingProductToShoppingCartTableViewController.AddingProductVC
+        self.delegate?.fetchData(size: size, sugar: sugar, temperature: temperature)
+    }
+    
+    
+    
 }

@@ -10,7 +10,7 @@ import Foundation
 
 struct Category: Codable {
     var id: Int?
-    let name: String?
+    var name: String?
     
 }
 

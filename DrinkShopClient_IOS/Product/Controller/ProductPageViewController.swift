@@ -10,15 +10,23 @@ import UIKit
 
 extension ProductPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.tableView = tableView
         return productArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "productListCell", for: indexPath) as! productListTableViewCell
         cell.selectionStyle = .none  // 取消選取狀態
-        let productList = productArray[indexPath.row]
-        cell.productList = productList
+        let product = productArray[indexPath.row]
+        cell.productContent = product
+        
+        cell.productQuantityContent = logSQLite.searchProductQuantityInShoppingCart(productName: product.getName())
         return cell
+    }
+    
+    // 自動改變高度
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
 
@@ -30,11 +38,17 @@ class ProductPageViewController: UIViewController {
     
     var version: Int? = nil
     
-    var categoryArray: [Category] = []
-    var productArray: [Product] = []
+    var categoryArray: [Category] = []  // 類別陣列
+    var productArray: [Product] = []  // 選擇的類別的商品陣列
     
-    let communicator = Communicator.shared
-    let logSQLite = LogSQLite.init()
+    let categoryColor = [ColorHelper.red, ColorHelper.purple, ColorHelper.yellow, ColorHelper.green, ColorHelper.blue, ColorHelper.indigo, ColorHelper.orange]
+    
+    var tableView: UITableView!
+    
+    let communicator = Communicator.shared  // 傳送資料用
+    let logSQLite = LogSQLite.init()  // 資料庫
+    
+    var completionRate = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +60,11 @@ class ProductPageViewController: UIViewController {
         versionSynchronization(lastVersion: version)
     }
     
-    // button 的觸發事件
+    override func viewWillAppear(_ animated: Bool) {
+        completionRate = 0
+    }
+    
+    // button 的觸發事件x
     @objc func buttonAction(_ sender: UIButton) {
         borderColorView.backgroundColor = sender.backgroundColor
         guard let category = sender.titleLabel?.text else {
@@ -59,8 +77,43 @@ class ProductPageViewController: UIViewController {
         productListTableView.reloadData()
     }
     
+    // 將選擇的商品明細傳送至AddingProduct頁面
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "productPageGoAddingProduct" {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                let product = productArray[selectedIndexPath.row]
+                let addingProduct = segue.destination as! AddingProductToShoppingCartViewController
+                addingProduct.product_id = product.getId()
+                addingProduct.category = product.getCategory()
+                addingProduct.productName = product.getName()
+                addingProduct.priceM = product.getPriceM()
+                addingProduct.priceL = product.getPriceL()
+                addingProduct.size = 1
+                addingProduct.sugar = 1
+                addingProduct.temperature = 1
+                addingProduct.from = "ProductPageViewController"
+                addingProduct.quantity = 1
+            }
+        }
+    }
+    
     @IBAction func unwindToProductPageViewController(_ unwindSegue: UIStoryboardSegue) {
         // Use data from the view controller which initiated the unwind segue
+        tableView.reloadData()
+    }
+    
+    // 設置初始畫面
+    func setTheInitialScreen() {
+        if completionRate >= 2 {
+            borderColorView.backgroundColor = categoryColor[0]
+            guard let firstCategory = categoryArray.first?.name else {
+                PrintHelper.println(tag: "ProductPageViewController", line: #line, "ERROR: category is nil or category name is nil")
+                return
+            }
+            productArray = logSQLite.searchProductInCategory(to: firstCategory)
+            productListTableView.reloadData()
+        }
+        PrintHelper.println(tag: "ProductPageViewController", line: #line, "completionRate: \(completionRate)")
     }
     
     deinit {
@@ -107,13 +160,16 @@ extension ProductPageViewController {
             // 將資料與UI相連
             self.linkCategoryUI()
             
+            // 設置初始畫面
+            self.completionRate += 1
+            self.setTheInitialScreen()
         }
     }
     
     // 將Category資料與UI相連
     func linkCategoryUI() {
         var categoryCount = 0
-        let categoryColor = [ColorHelper.red, ColorHelper.purple, ColorHelper.yellow, ColorHelper.green, ColorHelper.blue, ColorHelper.indigo, ColorHelper.orange]
+        
         
         // 產生類別按鈕
         for category in categoryArray {
@@ -159,8 +215,11 @@ extension ProductPageViewController {
                 // 準備全部商品資料 存 SQLite
                 self.getAllProductSaveSQLite()
                 self.version = nowVersion
+            } else {
+                // 設置初始畫面
+                self.completionRate += 1
+                self.setTheInitialScreen()
             }
-            
             
         }
     }
@@ -200,13 +259,16 @@ extension ProductPageViewController {
             self.logSQLite.delete(table: self.logSQLite.logTable_allProduct)
             
             for product in self.productArray {
-                self.logSQLite.append(product)
+                self.logSQLite.appendNewProduct(product)
             }
             
             PrintHelper.println(tag: "ProductPageViewController", line: #line, "PASSED: \(#function) OK")
             
             self.versionSave()
             
+            // 設置初始畫面
+            self.completionRate += 1
+            self.setTheInitialScreen()
         }
     }
     

@@ -13,29 +13,52 @@ class LogSQLite {
     
     var db: Connection!
     
-    // version 表
-    static let tableName_version = "DrinkShopClientLogVersion"
-    static let versions = "versions"
+    // ShoppingCart 表
+    static let TABLENAME_SHOPPINGCART = "DrinkShopClientLogShoppingCart"
+    static let SC_ID = "id"
+    static let SC_PRODUCT_ID = "product_id"
+    static let SC_CATEGORY = "category"
+    static let SC_PRODUCT_NAME = "productname"
+    static let SC_SIZE = "size"
+    static let SC_SIZE_PRICE = "sizePrice"
+    static let SC_QUANTITY = "quantity"
+    static let SC_SUGAR = "sugar"
+    static let SC_TEMPERATURE = "temperature"
     
-    var logTable_version = Table(tableName_version)
-    var versionColumn = Expression<Int>(versions)
+    var logTable_shoppingCart = Table(TABLENAME_SHOPPINGCART)
+    var scIdColumn = Expression<Int>(SC_ID)
+    var scProductIdColumn = Expression<Int>(SC_PRODUCT_ID)
+    var scCategoryColumn = Expression<String>(SC_CATEGORY)
+    var scProductNameColumn = Expression<String>(SC_PRODUCT_NAME)
+    var scSizeColumn = Expression<Int>(SC_SIZE)
+    var scSizePriceColumn = Expression<Int>(SC_SIZE_PRICE)
+    var scQuantityColumn = Expression<Int>(SC_QUANTITY)
+    var scSugarColumn = Expression<Int>(SC_SUGAR)
+    var scTemperatureColumn = Expression<Int>(SC_TEMPERATURE)
+    
+    // version 表
+    static let TABLENAME_VERSION = "DrinkShopClientLogVersion"
+    static let VERSIONS = "versions"
+    
+    var logTable_version = Table(TABLENAME_VERSION)
+    var versionColumn = Expression<Int>(VERSIONS)
     
     // Product 表
-    static let tableName_allProduct = "DrinkShopClientLogAllProduct"
-    static let id = "id"
-    static let categoryId = "categoryId"
-    static let category = "category"
-    static let name = "name"
-    static let priceM = "priceM"
-    static let priceL = "priceL"
+    static let TABLENAME_ALLPRODUCT = "DrinkShopClientLogAllProduct"
+    static let PRODUCT_ID = "id"
+    static let PRODUCT_CATEGORY_ID = "categoryId"
+    static let PRODUCT_CATEGORY = "category"
+    static let PRODUCT_NAME = "name"
+    static let PRODUCT_PROICE_M = "priceM"
+    static let PRODUCT_PRICE_L = "priceL"
     
-    var logTable_allProduct = Table(tableName_allProduct)
-    var idColumn = Expression<Int>(id)
-    var categoryIdColumn = Expression<Int>(categoryId)
-    var categoryColumn = Expression<String>(category)
-    var nameColumn = Expression<String>(name)
-    var priceMColumn = Expression<Int>(priceM)
-    var priceLColumn = Expression<Int>(priceL)
+    var logTable_allProduct = Table(TABLENAME_ALLPRODUCT)
+    var idColumn = Expression<Int>(PRODUCT_ID)
+    var categoryIdColumn = Expression<Int>(PRODUCT_CATEGORY_ID)
+    var categoryColumn = Expression<String>(PRODUCT_CATEGORY)
+    var nameColumn = Expression<String>(PRODUCT_NAME)
+    var priceMColumn = Expression<Int>(PRODUCT_PROICE_M)
+    var priceLColumn = Expression<Int>(PRODUCT_PRICE_L)
     
     var productCount = [String]()
     
@@ -75,8 +98,21 @@ class LogSQLite {
                     builder.column(priceMColumn)
                     builder.column(priceLColumn)
                 }
+                
+                let command_shoppingCart = logTable_shoppingCart.create { (builder) in
+                    builder.column(scIdColumn, primaryKey: .autoincrement)
+                    builder.column(scProductIdColumn)
+                    builder.column(scCategoryColumn)
+                    builder.column(scProductNameColumn)
+                    builder.column(scSizeColumn)
+                    builder.column(scSizePriceColumn)
+                    builder.column(scQuantityColumn)
+                    builder.column(scSugarColumn)
+                    builder.column(scTemperatureColumn)
+                }
                 try db.run(command_version)
                 try db.run(command_allProduct)
+                try db.run(command_shoppingCart)
                 PrintHelper.println(tag: "LogSQLite", line: #line, "DB CREATE OK!")
                 
                 // 加入初始值
@@ -95,10 +131,182 @@ class LogSQLite {
             } catch {
                 assertionFailure("Fail to execute prepare command: \(error).")
             }
-            print("There are total \(productCount.count) messages in DB")
+            print("There are total \(productCount.count) Product in DB")
         }
     }
 
+}
+
+// MARK: - ShoppingCart
+extension LogSQLite {
+    
+    // 新增購買的商品
+    func appendSelectProduct(_ shoppingCart: ShoppingCart) {
+        let productId = shoppingCart.getProductId()
+        let category = shoppingCart.getCategory()
+        let productName = shoppingCart.getProductName()
+        let size = shoppingCart.getSize()
+        let sizePrice = shoppingCart.getSizePrice()
+        let quantity = shoppingCart.getQuantity()
+        let sugar = shoppingCart.getSugar()
+        let temperature = shoppingCart.getTemperature()
+        
+        let command = logTable_shoppingCart.insert(
+            scProductIdColumn <- productId,
+            scCategoryColumn <- category,
+            scProductNameColumn <- productName,
+            scSizeColumn <- size,
+            scSizePriceColumn <- sizePrice,
+            scQuantityColumn <- quantity,
+            scSugarColumn <- sugar,
+            scTemperatureColumn <- temperature
+        )
+        do {
+            try db.run(command)
+            
+            for shoppingCart in searchAllProductInShoppingCart() {
+                print("\(shoppingCart.getId())")
+            }
+            
+        } catch {
+            PrintHelper.println(tag: "LogSQLite", line: #line, "Fail to insert a shoppingCart: \(error).")
+            assertionFailure("Fail to insert a shoppingCart: \(error).")
+        }
+    }
+    
+    // 修改購買的商品
+    func updateSelectProduct(id: Int, sc: ShoppingCart) {
+        let cond = logTable_shoppingCart.filter(scIdColumn == id)
+        
+        let command = cond.update(
+            scProductIdColumn <- sc.getProductId(),
+            scCategoryColumn <- sc.getCategory(),
+            scProductNameColumn <- sc.getProductName(),
+            scSizeColumn <- sc.getSize(),
+            scSizePriceColumn <- sc.getSizePrice(),
+            scQuantityColumn <- sc.getQuantity(),
+            scSugarColumn <- sc.getSugar(),
+            scTemperatureColumn <- sc.getTemperature()
+        )
+        do {
+            try db.run(command)
+        } catch {
+            PrintHelper.println(tag: "LogSQLite", line: #line, "ERROR: Update Select Product")
+            assertionFailure("\(#line) Fail to updateSelectProduct: \(error)")
+        }
+    }
+    
+    
+    // 刪除購買的商品
+    func deleteSelectProduct(id: Int) {
+        let cond = logTable_shoppingCart.filter(scIdColumn == id)
+        let command = cond.delete()
+        do {
+            try db.run(command)
+        } catch {
+            PrintHelper.println(tag: "LogSQLite", line: #line, "ERROR: Delete Select Product")
+            assertionFailure("\(#line) Fail to deleteSelectProduct: \(error)")
+        }
+    }
+    
+    // 顯示所有購買的商品
+    func searchAllProductInShoppingCart() -> [ShoppingCart] {
+        var result = [ShoppingCart]()
+        do {
+            for shoppingCart in try db.prepare(logTable_shoppingCart) {
+                result.append(getRecord(shoppingCart, from: #function))
+            }
+        } catch {
+            PrintHelper.println(tag: "LogSQLite", line: #line, "ERROR: Search All Product In ShoppingCart")
+            assertionFailure("\(#line) Fail to searchAllProductInShoppingCart: \(error)")
+        }
+        
+        return result
+    }
+    
+    // 顯示購買商品數量
+    func searchProductQuantityInShoppingCart(productName: String) -> Int {
+        var result: Int = 0
+        let command = logTable_shoppingCart.select(scQuantityColumn)
+                                        .filter(scProductNameColumn == productName)
+        do {
+            for shoppingCart in try db.prepare(command) {
+                var sc = ShoppingCart()
+                sc.quantity = shoppingCart[scQuantityColumn]
+                
+                PrintHelper.println(tag: "LogSQLite", line: #line, "\(productName) : \(sc)杯")
+                result += sc.getQuantity()
+            }
+        } catch {
+            PrintHelper.println(tag: "LogSQLite", line: #line, "ERROR: Search Product Quantity In ShoppingCart")
+            assertionFailure("\(#line) Fail to searchProductQuantityInShoppingCart: \(error)")
+        }
+        return result
+    }
+    
+    // 顯示選取商品的資訊
+    func searchProductDetail(id: Int) -> [ShoppingCart] {
+        var result = [ShoppingCart]()
+        let cond = logTable_shoppingCart.filter(scIdColumn == id)
+        do {
+            for shoppingCart in try db.prepare(cond) {
+                result.append(getRecord(shoppingCart, from: #function))
+            }
+        } catch {
+            PrintHelper.println(tag: "LogSQLite", line: #line, "ERROR: Search Product Detail")
+            assertionFailure("\(#line) Fail to searchProductQuantityInShoppingCart: \(error)")
+        }
+        return result
+    }
+    
+    // 取的總杯數及總金額
+    func searchTotalCapAndTotalAmount() -> [ShoppingCartTotol] {
+        var result = [ShoppingCartTotol]()
+        let command = logTable_shoppingCart.select([scSizePriceColumn, scQuantityColumn])
+        do {
+            for shppingCart in try db.prepare(command) {
+                var sct = ShoppingCartTotol()
+                sct.price = shppingCart[scSizePriceColumn]
+                sct.quantity = shppingCart[scQuantityColumn]
+                PrintHelper.println(tag: "LogSQLite", line: #line, "Method: \(#function)" + "\n" +
+                    "價格: \(String(describing: sct.getPrice())), 數量: \(String(describing: sct.getQuantity()))")
+                result.append(sct)
+            }
+        } catch {
+            PrintHelper.println(tag: "LogSQLite", line: #line, "ERROR: Search TotalCap And TotalAmount")
+            assertionFailure("\(#line) Fail to searchTotalCapAndTotalAmount: \(error)")
+        }
+        return result
+    }
+    
+    // 把目前的資料包裝為物件
+    func getRecord(_ shoppingCart: Row, from method: String) -> ShoppingCart {
+        var result = ShoppingCart()
+        result.id = shoppingCart[scIdColumn]
+        result.productId = shoppingCart[scProductIdColumn]
+        result.category = shoppingCart[scCategoryColumn]
+        result.productName = shoppingCart[scProductNameColumn]
+        result.size = shoppingCart[scSizeColumn]
+        result.sizePrice = shoppingCart[scSizePriceColumn]
+        result.quantity = shoppingCart[scQuantityColumn]
+        result.sugar = shoppingCart[scSugarColumn]
+        result.temperature = shoppingCart[scTemperatureColumn]
+        
+        PrintHelper.println(tag: "LogSQLite", line: #line,
+                            "Method: \(method)" + "\n" +
+                                "ID: \(String(describing: result.getId()))" + "\n" +
+                                "商品ID: \(String(describing: result.getProductId()))" + "\n" +
+                                "類別: \(String(describing: result.getCategory()))" + "\n" +
+                                "品名: \(String(describing: result.getProductName()))" + "\n" +
+                                "大小: \(String(describing: result.getSize()))" + "\n" +
+                                "單價: \(String(describing: result.getSizePrice()))" + "\n" +
+                                "數量: \(String(describing: result.getQuantity()))" + "\n" +
+                                "甜度: \(String(describing: result.getSugar()))" + "\n" +
+                                "溫度: \(String(describing: result.getTemperature()))" + "\n"
+        )
+        
+        return result
+    }
 }
 
 // MARK: - Product Func
@@ -108,19 +316,10 @@ extension LogSQLite {
     var count: Int {
         return productCount.count
     }
+
     
     // 新增 Product
-    func append(_ product: Product) {
-        
-//        guard let id = product.id,
-//            let categoryId = product.categoryId,
-//            let category = product.category,
-//            let name = product.name,
-//            let priceM = product.priceM,
-//            let priceL = product.priceL else {
-//                PrintHelper.println(tag: "LogSQLite", line: #line, "SQLite append Error.")
-//                return
-//        }
+    func appendNewProduct(_ product: Product) {
         
         let id = product.getId()
         let categoryId = product.getCategoryId()
@@ -140,8 +339,30 @@ extension LogSQLite {
         do {
             try db.run(command)
         } catch {
+            PrintHelper.println(tag: "LogSQLite", line: #line, "ERROR: insert a new product")
             assertionFailure("\(#line) Fail to insert a new product: \(error).")
         }
+    }
+    
+    // 使用 id 搜尋 商品價錢
+    func searchProductPriceInId(_ id: Int) -> Product {
+        var result = Product()
+        let cond = logTable_allProduct.filter(idColumn == id)
+        
+        do {
+            // SELECT * FROM "DrinkShopClientLog WHERE id = id"
+            for product in try db.prepare(cond) {
+                let priceM = product[priceMColumn]
+                let priceL = product[priceLColumn]
+                
+                result.priceM = priceM
+                result.priceL = priceL
+            }
+        } catch {
+            assertionFailure("Fail to execute prepare command: \(error).")
+        }
+        
+        return result
     }
     
     // 使用 類別 搜尋 商品
@@ -160,7 +381,6 @@ extension LogSQLite {
                 let priceM = product[priceMColumn]
                 let priceL = product[priceLColumn]
                 
-//                let productObj = Product.init(id: id, categoryId: categoryId, category: category, name: name, priceM: priceM, priceL: priceL)
                 var productObj = Product()
                 productObj.id = id
                 productObj.categoryId = categoryId
@@ -168,7 +388,6 @@ extension LogSQLite {
                 productObj.name = name
                 productObj.priceM = priceM
                 productObj.priceL = priceL
-                
                 
                 productArray.append(productObj)
             }
