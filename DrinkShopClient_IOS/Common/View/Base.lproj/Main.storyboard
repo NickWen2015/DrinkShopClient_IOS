@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ActivitiesNavigationView-->
+        <!--Activities-->
         <scene sceneID="9jx-rX-YO7">
             <objects>
-                <viewControllerPlaceholder storyboardName="Activities" referencedIdentifier="ActivitiesNavigationView" id="YDz-vo-M8I" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Activities" referencedIdentifier="Activities" id="YDz-vo-M8I" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="IXA-e9-voF"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V4B-qd-92z" userLabel="First Responder" sceneMemberID="firstResponder"/>
