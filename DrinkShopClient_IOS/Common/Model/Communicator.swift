@@ -47,6 +47,7 @@ class Communicator {  //Singleton instance 單一實例模式
         let parameters:[String : Any] = [ACTION_KEY: "getImage", ID_KEY: id, IMAGESIZE_KEY: imageSize]
         
         return doPostForPhoto(urlString: photoURL, parameters: parameters, completion: completion)
+        
     }
     
     // 發Request到Server(圖片)

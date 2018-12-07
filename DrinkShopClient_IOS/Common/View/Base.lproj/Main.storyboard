@@ -13,11 +13,11 @@
         <scene sceneID="9jx-rX-YO7">
             <objects>
                 <viewControllerPlaceholder storyboardName="Activities" referencedIdentifier="Activities" id="YDz-vo-M8I" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="IXA-e9-voF"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="news" selectedImage="news" id="IXA-e9-voF"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V4B-qd-92z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="-231"/>
+            <point key="canvasLocation" x="30" y="-235"/>
         </scene>
         <!--ProductNavigationView-->
         <scene sceneID="GSi-ec-SLw">
@@ -171,5 +171,6 @@
         <image name="logo" width="172" height="172"/>
         <image name="member" width="37.5" height="37.5"/>
         <image name="member_selected" width="37.5" height="37.5"/>
+        <image name="news" width="37.5" height="37.5"/>
     </resources>
 </document>

@@ -24,7 +24,6 @@
 		2BDA034A219AC40C00367B27 /* 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA0349219AC40C00367B27 /* 2.swift */; };
 		2BDA034C219AC41C00367B27 /* 100.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA034B219AC41C00367B27 /* 100.swift */; };
 		2BDA034E219AC42F00367B27 /* 200.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA034D219AC42F00367B27 /* 200.swift */; };
-		2BDA0352219AC44900367B27 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA0351219AC44900367B27 /* ActivitiesViewController.swift */; };
 		2BFE784C218FFF3F005CD0D9 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE784B218FFF3F005CD0D9 /* Member.swift */; };
 		2BFE784E21900F42005CD0D9 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE784D21900F42005CD0D9 /* Common.swift */; };
 		2C97216D2195C1BB00BC5A06 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97216C2195C1BB00BC5A06 /* Category.swift */; };
@@ -60,9 +59,10 @@
 		2CCF8DE121B6BD68006F961A /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCF8DE021B6BD68006F961A /* ShoppingCartViewController.swift */; };
 		2CCF8DE321B6BE6F006F961A /* ShoppingCartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCF8DE221B6BE6F006F961A /* ShoppingCartTableViewController.swift */; };
 		2CCF8DE921B6C514006F961A /* ShoppingCartListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCF8DE821B6C514006F961A /* ShoppingCartListTableViewCell.swift */; };
-		7B44C37B21BA5E85004E9A32 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44C37A21BA5E85004E9A32 /* NewsItem.swift */; };
-		7B44C37D21BA5EB6004E9A32 /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B44C37C21BA5EB5004E9A32 /* Activities.storyboard */; };
-		7B44C37F21BA5F2D004E9A32 /* ActivitiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44C37E21BA5F2D004E9A32 /* ActivitiesCollectionViewCell.swift */; };
+		7B44C36A21BA266F004E9A32 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44C36921BA266F004E9A32 /* NewsItem.swift */; };
+		7B44C36C21BA2742004E9A32 /* ActivitiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44C36B21BA2741004E9A32 /* ActivitiesCollectionViewCell.swift */; };
+		7B44C38221BA6E19004E9A32 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44C38021BA6E19004E9A32 /* ActivitiesViewController.swift */; };
+		7B44C38321BA6E19004E9A32 /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B44C38121BA6E19004E9A32 /* Activities.storyboard */; };
 		F962A5A4CD3EE5A0DF357B27 /* Pods_DrinkShopClient_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E39B4D90D2610F872F912E9 /* Pods_DrinkShopClient_IOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,7 +102,6 @@
 		2BDA0349219AC40C00367B27 /* 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2.swift; sourceTree = "<group>"; };
 		2BDA034B219AC41C00367B27 /* 100.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 100.swift; sourceTree = "<group>"; };
 		2BDA034D219AC42F00367B27 /* 200.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 200.swift; sourceTree = "<group>"; };
-		2BDA0351219AC44900367B27 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		2BFE784B218FFF3F005CD0D9 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		2BFE784D21900F42005CD0D9 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		2C97216A2195BCF500BC5A06 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -138,9 +137,10 @@
 		2CCF8DE221B6BE6F006F961A /* ShoppingCartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartTableViewController.swift; sourceTree = "<group>"; };
 		2CCF8DE821B6C514006F961A /* ShoppingCartListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartListTableViewCell.swift; sourceTree = "<group>"; };
 		3E39B4D90D2610F872F912E9 /* Pods_DrinkShopClient_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkShopClient_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B44C37A21BA5E85004E9A32 /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
-		7B44C37C21BA5EB5004E9A32 /* Activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
-		7B44C37E21BA5F2D004E9A32 /* ActivitiesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesCollectionViewCell.swift; sourceTree = "<group>"; };
+		7B44C36921BA266F004E9A32 /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
+		7B44C36B21BA2741004E9A32 /* ActivitiesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesCollectionViewCell.swift; sourceTree = "<group>"; };
+		7B44C38021BA6E19004E9A32 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
+		7B44C38121BA6E19004E9A32 /* Activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
 		7C909B154298D9D6B54849A9 /* Pods-DrinkShopClient_IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkShopClient_IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkShopClient_IOS/Pods-DrinkShopClient_IOS.release.xcconfig"; sourceTree = "<group>"; };
 		CB7BFA160FE1049140B89C86 /* Pods-DrinkShopClient_IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkShopClient_IOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkShopClient_IOS/Pods-DrinkShopClient_IOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,7 +214,7 @@
 		2B5E32322193C99100A04A50 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7B44C37A21BA5E85004E9A32 /* NewsItem.swift */,
+				7B44C36921BA266F004E9A32 /* NewsItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,7 +222,7 @@
 		2B5E32332193C9A300A04A50 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2BDA0351219AC44900367B27 /* ActivitiesViewController.swift */,
+				7B44C38021BA6E19004E9A32 /* ActivitiesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -230,8 +230,8 @@
 		2B5E32342193C9AE00A04A50 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7B44C37E21BA5F2D004E9A32 /* ActivitiesCollectionViewCell.swift */,
-				7B44C37C21BA5EB5004E9A32 /* Activities.storyboard */,
+				7B44C38121BA6E19004E9A32 /* Activities.storyboard */,
+				7B44C36B21BA2741004E9A32 /* ActivitiesCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -508,7 +508,7 @@
 				2B5E322D21932F7800A04A50 /* Member.storyboard in Resources */,
 				2CAF06DE219A5EB400374898 /* img_product_shoppingcart@3x.png in Resources */,
 				2C9721792199A5B100BC5A06 /* img_product_non_select.png in Resources */,
-				7B44C37D21BA5EB6004E9A32 /* Activities.storyboard in Resources */,
+				7B44C38321BA6E19004E9A32 /* Activities.storyboard in Resources */,
 				2CB656842193E6430086798A /* img_product_drink_shop.png in Resources */,
 				2CAF06DF219A5EB400374898 /* img_product_shoppingcart.png in Resources */,
 				2B310E60216A35A600EBAEA2 /* LaunchScreen.storyboard in Resources */,
@@ -537,11 +537,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DrinkShopClient_IOS/Pods-DrinkShopClient_IOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,7 +589,6 @@
 				2B21E03E21A5315A00B3AAC7 /* MemberHistoryTableViewController.swift in Sources */,
 				2B21E04221A531CA00B3AAC7 /* MemberCouponTableViewController.swift in Sources */,
 				2BDA034A219AC40C00367B27 /* 2.swift in Sources */,
-				7B44C37B21BA5E85004E9A32 /* NewsItem.swift in Sources */,
 				2B20D9A42193FC80007EF9A9 /* UIImage+Resize.swift in Sources */,
 				2C989A2D21A3E92F00ABA026 /* AddingProductToShoppingCartViewController.swift in Sources */,
 				2BDA034E219AC42F00367B27 /* 200.swift in Sources */,
@@ -596,13 +597,14 @@
 				2CCF8DE921B6C514006F961A /* ShoppingCartListTableViewCell.swift in Sources */,
 				2C989A2B219DB1A700ABA026 /* productListTableViewCell.swift in Sources */,
 				2CCF8DD421A92584006F961A /* Login.swift in Sources */,
+				7B44C38221BA6E19004E9A32 /* ActivitiesViewController.swift in Sources */,
 				2CB6568D2193E7380086798A /* ProductPageViewController.swift in Sources */,
-				7B44C37F21BA5F2D004E9A32 /* ActivitiesCollectionViewCell.swift in Sources */,
 				2CCF8DE121B6BD68006F961A /* ShoppingCartViewController.swift in Sources */,
+				7B44C36C21BA2742004E9A32 /* ActivitiesCollectionViewCell.swift in Sources */,
 				2BDA034C219AC41C00367B27 /* 100.swift in Sources */,
+				7B44C36A21BA266F004E9A32 /* NewsItem.swift in Sources */,
 				2CB6568E2193E7380086798A /* ColorHelper.swift in Sources */,
 				2CCF8DDF21B4E5FA006F961A /* ProductDetails.swift in Sources */,
-				2BDA0352219AC44900367B27 /* ActivitiesViewController.swift in Sources */,
 				2CB6568C2193E7380086798A /* CategoryView.swift in Sources */,
 				2B14B09421969C0500EE6BC4 /* MemberFunctionViewController.swift in Sources */,
 				2B310E58216A35A400EBAEA2 /* ViewController.swift in Sources */,
@@ -759,7 +761,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3A4KFBTDN5;
+				DEVELOPMENT_TEAM = K66KF4QG26;
 				INFOPLIST_FILE = DrinkShopClient_IOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -782,7 +784,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3A4KFBTDN5;
+				DEVELOPMENT_TEAM = K66KF4QG26;
 				INFOPLIST_FILE = DrinkShopClient_IOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
