@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qB7-Hs-NXo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,53 +9,74 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News-->
-        <scene sceneID="2d8-fD-a4u">
+        <!--最新消息-->
+        <scene sceneID="h50-wq-roE">
             <objects>
-                <viewController title="News" id="cVB-uw-jBR" customClass="ActivitiesViewController" customModule="DrinkShopClient_IOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5KE-AK-rCR">
+                <viewController id="qB7-Hs-NXo" customClass="ActivitiesViewController" customModule="DrinkShopClient_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0K6-VB-c0D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="最新消息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1o6-K3-CHu">
-                                <rect key="frame" x="152" y="323" width="70" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iCr-dk-gYe">
+                                <rect key="frame" x="0.0" y="8" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zZi-c2-dGR">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="PQE-Ca-oXS" customClass="ActivitiesCollectionViewCell" customModule="DrinkShopClient_IOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kKW-2G-azV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="kKW-2G-azV" firstAttribute="top" secondItem="PQE-Ca-oXS" secondAttribute="top" id="F7Z-3b-RS3"/>
+                                            <constraint firstAttribute="trailing" secondItem="kKW-2G-azV" secondAttribute="trailing" id="HFR-wt-Ye9"/>
+                                            <constraint firstAttribute="bottom" secondItem="kKW-2G-azV" secondAttribute="bottom" id="Mkw-Fv-DiX"/>
+                                            <constraint firstItem="kKW-2G-azV" firstAttribute="leading" secondItem="PQE-Ca-oXS" secondAttribute="leading" id="eAo-v3-jmN"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="activityImageView" destination="kKW-2G-azV" id="bBI-nA-IoO"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="qB7-Hs-NXo" id="Jjr-JD-AYc"/>
+                                    <outlet property="delegate" destination="qB7-Hs-NXo" id="2uB-ti-VDI"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="FUf-JT-udB"/>
+                        <constraints>
+                            <constraint firstItem="iCr-dk-gYe" firstAttribute="bottom" secondItem="nWH-4q-eaq" secondAttribute="bottom" id="5lX-Jk-RWu"/>
+                            <constraint firstItem="iCr-dk-gYe" firstAttribute="trailing" secondItem="nWH-4q-eaq" secondAttribute="trailing" id="BQ3-ba-jj5"/>
+                            <constraint firstItem="iCr-dk-gYe" firstAttribute="top" secondItem="nWH-4q-eaq" secondAttribute="top" id="jgO-1y-gWw"/>
+                            <constraint firstItem="iCr-dk-gYe" firstAttribute="leading" secondItem="nWH-4q-eaq" secondAttribute="leading" id="weQ-Ud-zkz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nWH-4q-eaq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IrQ-CY-oac"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VpT-3H-mO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1212" y="-851.42428785607206"/>
-        </scene>
-        <!--最新消息-->
-        <scene sceneID="ovq-f3-8wU">
-            <objects>
-                <navigationController storyboardIdentifier="ActivitiesNavigationView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZnY-uM-xqj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="最新消息" image="news" selectedImage="news_selected" id="fGS-cJ-Qo0"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vyw-e8-qqg">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                    <tabBarItem key="tabBarItem" title="最新消息" image="news" selectedImage="news" id="Lcd-uv-6tc"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="cVB-uw-jBR" kind="relationship" relationship="rootViewController" id="rlN-fn-fal"/>
+                        <outlet property="activityCollectionView" destination="iCr-dk-gYe" id="0Ic-Oj-vPx"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RWp-FR-nA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y0e-Wi-zFA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="272.80000000000001" y="-851.42428785607206"/>
+            <point key="canvasLocation" x="-23" y="-1316"/>
         </scene>
     </scenes>
     <resources>
         <image name="news" width="37.5" height="37.5"/>
-        <image name="news_selected" width="37.5" height="37.5"/>
     </resources>
 </document>
