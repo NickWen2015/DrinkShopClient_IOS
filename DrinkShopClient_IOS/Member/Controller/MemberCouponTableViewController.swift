@@ -9,73 +9,87 @@
 import UIKit
 
 class MemberCouponTableViewController: UITableViewController {
+    
+    var objects = [Coupon]()
+    let communicator = Communicator.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        guard let isLogin = UserDefaults.standard.value(forKey: "isLogin") as? Bool, let member_id = UserDefaults.standard.value(forKey: "member_id") as? Int else {
+            assertionFailure("member is not login or member_id is nil")
+            return
+        }
+        
+        if(isLogin){
+            let id = String(member_id)
+            communicator.getAllCouponsByMemberId(member_id: id){ (result, error) in
+                if let error = error {
+                    print(" Load Data Error: \(error)")
+                    return
+                }
+                guard let result = result else {
+                    print (" result is nil")
+                    return
+                }
+                print("Load Data OK.")
+                
+                guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else {
+                    print(" Fail to generate jsonData.")
+                    return
+                }
+                //解碼
+                let decoder = JSONDecoder()
+                guard let resultObject = try? decoder.decode([Coupon].self, from: jsonData) else {
+                    print(" Fail to decode jsonData.")
+                    return
+                }
+                for couponItem in resultObject {
+                    self.objects.append(couponItem)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                if self.objects.count == 0 {
+                    //沒有優惠卷資料
+                    let alertController = UIAlertController(title: "無資料", message:
+                        "您沒有優惠卷！", preferredStyle: UIAlertController.Style.alert)
+                    alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
+                    self.present(alertController, animated: false, completion: nil)
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return objects.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CouponCell", for: indexPath) as! MemberCouponTableViewCell
+        
+        cell.starTimeLabel?.text = objects[indexPath.row].coupon_start
+        cell.endTimeLabel?.text = objects[indexPath.row].coupon_end
+        cell.useLabel?.text = objects[indexPath.row].coupon_status == "0" ? "未使用" : "已使用"
+        let text_temp = String(objects[indexPath.row].coupon_discount)
+        let i = text_temp.index(text_temp.startIndex, offsetBy: 0)
+        let text = String(text_temp[i])
+        cell.discountLabel?.text = text + "折"
+        if (cell.useLabel?.text == "已使用" ){
+            cell.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        } else {
+            cell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        }
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

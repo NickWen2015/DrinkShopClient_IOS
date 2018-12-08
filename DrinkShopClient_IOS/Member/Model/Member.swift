@@ -41,17 +41,18 @@ extension Communicator {
     
     //會員id查詢會員資料成功回傳member物件
     func getMemberById(member_id: String, completion: @escaping DoneHandler) {
-//        let member: Member? = nil
-        
         let parameters: [String: Any] = [ACTION_KEY: "findById", MEMBER_ID_KEY: member_id]
         doPost(urlString: MEMBERSERVLET_URL, parameters: parameters, completion: completion)
     }
     
     //會員資料修改(資料送出)
     func memberUpdate(member: String, completion: @escaping DoneHandler) {
-        //        let member: Member? = nil
-        
         let parameters: [String: Any] = [ACTION_KEY: "memberUpdate", MEMBER_KEY: member]
+        doPost(urlString: MEMBERSERVLET_URL, parameters: parameters, completion: completion)
+    }
+    //會員資料新增
+    func memberInsert(member: String, completion: @escaping DoneHandler) {
+        let parameters: [String: Any] = [ACTION_KEY: "memberInsert", MEMBER_KEY: member]
         doPost(urlString: MEMBERSERVLET_URL, parameters: parameters, completion: completion)
     }
 }

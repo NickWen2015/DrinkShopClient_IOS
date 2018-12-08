@@ -11,7 +11,7 @@ import UIKit
 class MemberFunctionViewController: UIViewController {
     
     @IBOutlet weak var logoutBarBtn: UIBarButtonItem!
-    
+    @IBOutlet weak var memberImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     var member: Member?
     
@@ -27,10 +27,16 @@ class MemberFunctionViewController: UIViewController {
         super.viewWillAppear(animated)
         login = Login(view: self)
         
-        if let isLogin = UserDefaults.standard.value(forKey: "isLogin") as? Bool, let member_name = UserDefaults.standard.value(forKey: "member_name") as? String {
+        if let isLogin = UserDefaults.standard.value(forKey: "isLogin") as? Bool, let member_name = UserDefaults.standard.value(forKey: "member_name") as? String, let member_sex = UserDefaults.standard.value(forKey: "member_sex") as? String {
             if(isLogin) {
                 logoutBarBtn.title = "登出"
                 nameLabel.text = member_name
+                if member_sex == "1" {
+                    memberImageView.image = UIImage(named: "boy")
+                } else {
+                    memberImageView.image = UIImage(named: "girl")
+                }
+                
             } else {
                 login.login()
                 logoutBarBtn.title = "登入"

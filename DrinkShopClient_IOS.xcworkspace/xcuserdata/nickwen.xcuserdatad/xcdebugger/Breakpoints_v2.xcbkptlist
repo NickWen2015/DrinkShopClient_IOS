@@ -2,4 +2,100 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DrinkShopClient_IOS/Member/Controller/MemberOrderDetailViewController.swift"
+            timestampString = "565970918.577812"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DrinkShopClient_IOS/Member/Controller/MemberFunctionViewController.swift"
+            timestampString = "565968984.479528"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "MemberFunctionViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DrinkShopClient_IOS.MemberFunctionViewController.member.getter : Swift.Optional&lt;DrinkShopClient_IOS.Member&gt;"
+                  moduleName = "DrinkShopClient_IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nickwen/Desktop/DrinkShop/DrinkShopClient_IOS/DrinkShopClient_IOS/Member/Controller/MemberFunctionViewController.swift"
+                  timestampString = "565967904.943921"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "523">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DrinkShopClient_IOS.MemberFunctionViewController.member.setter : Swift.Optional&lt;DrinkShopClient_IOS.Member&gt;"
+                  moduleName = "DrinkShopClient_IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nickwen/Desktop/DrinkShop/DrinkShopClient_IOS/DrinkShopClient_IOS/Member/Controller/MemberFunctionViewController.swift"
+                  timestampString = "565967904.950138"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "641">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DrinkShopClient_IOS.MemberFunctionViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; DrinkShopClient_IOS.MemberFunctionViewController"
+                  moduleName = "DrinkShopClient_IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nickwen/Desktop/DrinkShop/DrinkShopClient_IOS/DrinkShopClient_IOS/Member/Controller/MemberFunctionViewController.swift"
+                  timestampString = "565967904.953429"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "384">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DrinkShopClient_IOS.MemberFunctionViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;DrinkShopClient_IOS.MemberFunctionViewController&gt;"
+                  moduleName = "DrinkShopClient_IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nickwen/Desktop/DrinkShop/DrinkShopClient_IOS/DrinkShopClient_IOS/Member/Controller/MemberFunctionViewController.swift"
+                  timestampString = "565967904.957193"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "355">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

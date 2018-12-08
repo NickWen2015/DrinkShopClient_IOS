@@ -42,15 +42,17 @@ class Login {
         return controller
     }
     
-    func setUserDefaultsLogin(member_id: Int, member_name: String) {
+    func setUserDefaultsLogin(member_id: Int, member_name: String, member_sex: String) {
         UserDefaults.standard.set(true, forKey: "isLogin")
         UserDefaults.standard.set(member_id, forKey: "member_id")
         UserDefaults.standard.set(member_name, forKey: "member_name")
+        UserDefaults.standard.set(member_sex, forKey: "member_sex")
     }
     
     func setUserDefaultsLogout() {
         UserDefaults.standard.set(false, forKey: "isLogin")
         UserDefaults.standard.set(nil, forKey: "member_id")
         UserDefaults.standard.set(nil, forKey: "member_name")
+        UserDefaults.standard.set(nil, forKey: "member_sex")
     }
 }

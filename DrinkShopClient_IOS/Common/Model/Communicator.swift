@@ -20,6 +20,11 @@ let ACCOUNT_KEY = "name"
 let PASSWORD_KEY = "password"
 let MEMBER_ID_KEY = "member_id"
 let MEMBER_KEY = "member"
+let COUPON_KEY = "coupon"
+let COUPON_STATUS_KEY = "status"
+let COUPON_ID_KEY = "coupon_id"
+let ORDER_KEY = "order"
+let ORDER_ID_KEY = "order_id"
 
 
 
@@ -36,6 +41,8 @@ class Communicator {  //Singleton instance 單一實例模式
     let NEWSSERVLET_URL = BASEURL + "NewsServlet"
     let ORDERSSERVLET_URL = BASEURL + "OrdersServlet"
     let PRODUCTSERVLET_URL = BASEURL + "ProductServlet"
+    let COUPONSERVLET_URL = BASEURL + "CouponServlet"
+    let ORDERSERVLET_URL = BASEURL + "OrdersServlet"
     
     static let shared = Communicator()
     private init() {

@@ -88,9 +88,9 @@ class MemberViewController: UIViewController {
                     }
                     let member_id = memberObject.member_id
                     let member_name = memberObject.member_name
-                    
+                    let member_sex = memberObject.member_sex
                     //將登入狀態存入偏好設定
-                    self.login.setUserDefaultsLogin(member_id: member_id, member_name: member_name)
+                    self.login.setUserDefaultsLogin(member_id: member_id, member_name: member_name, member_sex: member_sex)
                     
 //                    self.member = memberObject
                     //開逃生門到會員頁

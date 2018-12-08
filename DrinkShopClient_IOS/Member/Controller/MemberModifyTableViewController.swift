@@ -33,6 +33,7 @@ class MemberModifyTableViewController: UITableViewController {
     @IBOutlet weak var member_mobile_TextField: UITextField!
     @IBOutlet weak var member_email_TextField: UITextField!
     @IBOutlet weak var member_address_TextField: UITextField!
+    @IBOutlet weak var birthdayDateLabel: UILabel!
     
     @IBOutlet weak var savaBarButtonItem: UIBarButtonItem!
     
@@ -40,9 +41,16 @@ class MemberModifyTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        member_birthday_DatePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
     }
 
+    @objc func datePickerValueChanged (datePicker: UIDatePicker) {
+        let dateformatter = DateFormatter()
+        //自定義日期格式
+        dateformatter.dateFormat = "yyyy-MM-dd"
+        let birthdayDateValue = dateformatter.string(from: member_birthday_DatePicker.date)
+        birthdayDateLabel.text = birthdayDateValue
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -89,6 +97,8 @@ class MemberModifyTableViewController: UITableViewController {
                 default:
                     self.member_sex_SegmentedControl.selectedSegmentIndex = 0
                 }
+                self.birthdayDateLabel.text = memberObject.member_birthday
+                
                 let member_birthday = Common.getDateFromString(strFormat: "yyyy-MM-dd", strDate: memberObject.member_birthday)
                 print("date : \(member_birthday)")
                 
@@ -229,19 +239,18 @@ class MemberModifyTableViewController: UITableViewController {
             
             
             if loginStatus == 1 {
-                //跳出登入成功視窗
-                let alertController = UIAlertController(title: "完成", message:
-                    "儲存成功！", preferredStyle: UIAlertController.Style.alert)
-                alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
-                self.present(alertController, animated: false, completion: nil)
+//                //跳出登入成功視窗
+//                let alertController = UIAlertController(title: "完成", message:
+//                    "儲存成功！", preferredStyle: UIAlertController.Style.alert)
+//                alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
+//                self.present(alertController, animated: false, completion: nil)
                 
                 //相關欄位存入偏好設定
-                self.login.setUserDefaultsLogin(member_id: self.member_id_value, member_name: member_name)
-                
-//                self.tableView.reloadData()
+                self.login.setUserDefaultsLogin(member_id: self.member_id_value, member_name: member_name, member_sex: self.member_sex_SegmentedControl_temp)
                 
                 //儲存按鈕消失
                 self.savaBarButtonItem.isEnabled = false
+                self.dismiss(animated: true)
             } else {
                 let alertController = UIAlertController(title: "失敗", message:
                     "儲存失敗，請確認輸入資料否正確！", preferredStyle: UIAlertController.Style.alert)
