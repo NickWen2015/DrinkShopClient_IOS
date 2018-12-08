@@ -239,12 +239,6 @@ class MemberModifyTableViewController: UITableViewController {
             
             
             if loginStatus == 1 {
-//                //跳出登入成功視窗
-//                let alertController = UIAlertController(title: "完成", message:
-//                    "儲存成功！", preferredStyle: UIAlertController.Style.alert)
-//                alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
-//                self.present(alertController, animated: false, completion: nil)
-                
                 //相關欄位存入偏好設定
                 self.login.setUserDefaultsLogin(member_id: self.member_id_value, member_name: member_name, member_sex: self.member_sex_SegmentedControl_temp)
                 

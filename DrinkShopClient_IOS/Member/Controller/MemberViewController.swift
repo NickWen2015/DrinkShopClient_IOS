@@ -28,7 +28,6 @@ class MemberViewController: UIViewController {
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         let account: String = accountTextField.text!
         let password: String = passwordTextField.text!
-//        var memberJsonInfo: Any = ""
         
         guard account.count != 0 && password.count != 0 else {
             let alertController = UIAlertController(title: "帳號資料空白", message:
@@ -118,12 +117,6 @@ class MemberViewController: UIViewController {
         PrintHelper.println(tag: "MemberViewController", line: #line, "cancelBarBtnPressed.")
         self.performSegue(withIdentifier: "CancelForActivities", sender: self)
     }
-    
-    
-//    deinit {
-//        login = nil
-//        PrintHelper.println(tag: "MemberViewController", line: #line, "login obj is deinit: \(login)")
-//    }
     
 }
 
