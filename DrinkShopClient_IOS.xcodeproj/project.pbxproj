@@ -31,8 +31,15 @@
 		2B5E322F2193398B00A04A50 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E322E2193398B00A04A50 /* MemberViewController.swift */; };
 		2B5E32402193D3F700A04A50 /* ChatRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E323F2193D3F700A04A50 /* ChatRoom.storyboard */; };
 		2BDA034A219AC40C00367B27 /* 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA0349219AC40C00367B27 /* 2.swift */; };
-		2BDA034C219AC41C00367B27 /* 100.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA034B219AC41C00367B27 /* 100.swift */; };
-		2BDA034E219AC42F00367B27 /* 200.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA034D219AC42F00367B27 /* 200.swift */; };
+		2BFC8EB721BC1F5400A8BE78 /* ChatCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8EB621BC1F5400A8BE78 /* ChatCommunicator.swift */; };
+		2BFC8EB921BC1F7E00A8BE78 /* OrderOnlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8EB821BC1F7E00A8BE78 /* OrderOnlineViewController.swift */; };
+		2BFC8EBB21BC210500A8BE78 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8EBA21BC210500A8BE78 /* LogManager.swift */; };
+		2BFC8EC121BC211000A8BE78 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8EBC21BC211000A8BE78 /* ChatView.swift */; };
+		2BFC8EC221BC211000A8BE78 /* fromOthers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFC8EBD21BC211000A8BE78 /* fromOthers@2x.png */; };
+		2BFC8EC321BC211000A8BE78 /* fromMe.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFC8EBE21BC211000A8BE78 /* fromMe.png */; };
+		2BFC8EC421BC211000A8BE78 /* fromOthers.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFC8EBF21BC211000A8BE78 /* fromOthers.png */; };
+		2BFC8EC521BC211000A8BE78 /* fromMe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFC8EC021BC211000A8BE78 /* fromMe@2x.png */; };
+		2BFC8EC721BC213D00A8BE78 /* HelloMyPushMessage copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BFC8EC621BC213D00A8BE78 /* HelloMyPushMessage copy-Info.plist */; };
 		2BFE784C218FFF3F005CD0D9 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE784B218FFF3F005CD0D9 /* Member.swift */; };
 		2BFE784E21900F42005CD0D9 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE784D21900F42005CD0D9 /* Common.swift */; };
 		2C97216D2195C1BB00BC5A06 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97216C2195C1BB00BC5A06 /* Category.swift */; };
@@ -118,8 +125,16 @@
 		2B8260A321A68A60003FC1DA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		2B8260C621A6CCC3003FC1DA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		2BDA0349219AC40C00367B27 /* 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2.swift; sourceTree = "<group>"; };
-		2BDA034B219AC41C00367B27 /* 100.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 100.swift; sourceTree = "<group>"; };
-		2BDA034D219AC42F00367B27 /* 200.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 200.swift; sourceTree = "<group>"; };
+		2BFC8EB621BC1F5400A8BE78 /* ChatCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCommunicator.swift; sourceTree = "<group>"; };
+		2BFC8EB821BC1F7E00A8BE78 /* OrderOnlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderOnlineViewController.swift; sourceTree = "<group>"; };
+		2BFC8EBA21BC210500A8BE78 /* LogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		2BFC8EBC21BC211000A8BE78 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		2BFC8EBD21BC211000A8BE78 /* fromOthers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fromOthers@2x.png"; sourceTree = "<group>"; };
+		2BFC8EBE21BC211000A8BE78 /* fromMe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fromMe.png; sourceTree = "<group>"; };
+		2BFC8EBF21BC211000A8BE78 /* fromOthers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fromOthers.png; sourceTree = "<group>"; };
+		2BFC8EC021BC211000A8BE78 /* fromMe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fromMe@2x.png"; sourceTree = "<group>"; };
+		2BFC8EC621BC213D00A8BE78 /* HelloMyPushMessage copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HelloMyPushMessage copy-Info.plist"; sourceTree = "<group>"; };
+		2BFC8EC821BC263900A8BE78 /* DrinkShopClient_IOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DrinkShopClient_IOS.entitlements; sourceTree = "<group>"; };
 		2BFE784B218FFF3F005CD0D9 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		2BFE784D21900F42005CD0D9 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		2C97216A2195BCF500BC5A06 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -184,6 +199,7 @@
 				433839C2C0FCD774E2A89878 /* Pods */,
 				D51CEE1B0539F7FB3C6FEB81 /* Frameworks */,
 				2C8EFBCC21A9221500058CD5 /* Recovered References */,
+				2BFC8EC621BC213D00A8BE78 /* HelloMyPushMessage copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +214,7 @@
 		2B310E54216A35A400EBAEA2 /* DrinkShopClient_IOS */ = {
 			isa = PBXGroup;
 			children = (
+				2BFC8EC821BC263900A8BE78 /* DrinkShopClient_IOS.entitlements */,
 				2CB656772193E5910086798A /* Product */,
 				2B71078A2193D8660061CF64 /* Common */,
 				2B5E32382193CA2F00A04A50 /* ChatRoom */,
@@ -268,7 +285,8 @@
 		2B5E323C2193CA6D00A04A50 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2BDA034D219AC42F00367B27 /* 200.swift */,
+				2BFC8EBA21BC210500A8BE78 /* LogManager.swift */,
+				2BFC8EB621BC1F5400A8BE78 /* ChatCommunicator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,6 +294,11 @@
 		2B5E323D2193CA7500A04A50 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2BFC8EBC21BC211000A8BE78 /* ChatView.swift */,
+				2BFC8EBE21BC211000A8BE78 /* fromMe.png */,
+				2BFC8EC021BC211000A8BE78 /* fromMe@2x.png */,
+				2BFC8EBF21BC211000A8BE78 /* fromOthers.png */,
+				2BFC8EBD21BC211000A8BE78 /* fromOthers@2x.png */,
 				2B5E323F2193D3F700A04A50 /* ChatRoom.storyboard */,
 			);
 			path = View;
@@ -284,7 +307,7 @@
 		2B5E323E2193CA8000A04A50 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2BDA034B219AC41C00367B27 /* 100.swift */,
+				2BFC8EB821BC1F7E00A8BE78 /* OrderOnlineViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -507,7 +530,13 @@
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1010;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -538,6 +567,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C9721702199642900BC5A06 /* img_product_subtract.png in Resources */,
+				2BFC8EC321BC211000A8BE78 /* fromMe.png in Resources */,
+				2BFC8EC421BC211000A8BE78 /* fromOthers.png in Resources */,
 				2B5E322D21932F7800A04A50 /* Member.storyboard in Resources */,
 				2CAF06DE219A5EB400374898 /* img_product_shoppingcart@3x.png in Resources */,
 				2C9721792199A5B100BC5A06 /* img_product_non_select.png in Resources */,
@@ -548,10 +579,13 @@
 				2C9721712199642900BC5A06 /* img_product_add.png in Resources */,
 				2CB656862193E6430086798A /* img_product_size_m.png in Resources */,
 				2B310E5D216A35A600EBAEA2 /* Assets.xcassets in Resources */,
+				2BFC8EC521BC211000A8BE78 /* fromMe@2x.png in Resources */,
+				2BFC8EC221BC211000A8BE78 /* fromOthers@2x.png in Resources */,
 				2CB656852193E6430086798A /* img_product_size_l.png in Resources */,
 				2C9721782199A5B100BC5A06 /* img_product_select.png in Resources */,
 				2CB656872193E6430086798A /* img_product_item_total.png in Resources */,
 				2B310E5B216A35A400EBAEA2 /* Main.storyboard in Resources */,
+				2BFC8EC721BC213D00A8BE78 /* HelloMyPushMessage copy-Info.plist in Resources */,
 				2CAF06DD219A5EB400374898 /* img_product_shoppingcart@2x.png in Resources */,
 				2CB656882193E6430086798A /* img_product_background.png in Resources */,
 				2B5E32402193D3F700A04A50 /* ChatRoom.storyboard in Resources */,
@@ -620,8 +654,8 @@
 				2B5E322F2193398B00A04A50 /* MemberViewController.swift in Sources */,
 				2BFE784E21900F42005CD0D9 /* Common.swift in Sources */,
 				2B21E04021A5318E00B3AAC7 /* MemberOrderTableViewController.swift in Sources */,
+				2BFC8EC121BC211000A8BE78 /* ChatView.swift in Sources */,
 				2B21E03E21A5315A00B3AAC7 /* MemberHistoryTableViewController.swift in Sources */,
-				2BDA0350219AC43E00367B27 /* 1.swift in Sources */,
 				2B21F4DF21BA914400534049 /* Coupon.swift in Sources */,
 				2B21E04221A531CA00B3AAC7 /* MemberCouponTableViewController.swift in Sources */,
 				2BDA034A219AC40C00367B27 /* 2.swift in Sources */,
@@ -630,9 +664,10 @@
 				2B20D9A42193FC80007EF9A9 /* UIImage+Resize.swift in Sources */,
 				2B21F4DC21BA8A9800534049 /* MemberHistoryViewController.swift in Sources */,
 				2C989A2D21A3E92F00ABA026 /* AddingProductToShoppingCartViewController.swift in Sources */,
-				2BDA034E219AC42F00367B27 /* 200.swift in Sources */,
 				2CCF8DDB21ABF11B006F961A /* ShoppingCartTotol.swift in Sources */,
+				2BFC8EB721BC1F5400A8BE78 /* ChatCommunicator.swift in Sources */,
 				2C989A00219BCB5000ABA026 /* printHelper.swift in Sources */,
+				2BFC8EBB21BC210500A8BE78 /* LogManager.swift in Sources */,
 				2CCF8DE921B6C514006F961A /* ShoppingCartListTableViewCell.swift in Sources */,
 				2C989A2B219DB1A700ABA026 /* productListTableViewCell.swift in Sources */,
 				2CCF8DD421A92584006F961A /* Login.swift in Sources */,
@@ -640,8 +675,8 @@
 				2B21F4E721BBE20300534049 /* MemberRegisterTableViewController.swift in Sources */,
 				2CB6568D2193E7380086798A /* ProductPageViewController.swift in Sources */,
 				2CCF8DE121B6BD68006F961A /* ShoppingCartViewController.swift in Sources */,
+				2BFC8EB921BC1F7E00A8BE78 /* OrderOnlineViewController.swift in Sources */,
 				7B44C36C21BA2742004E9A32 /* ActivitiesCollectionViewCell.swift in Sources */,
-				2BDA034C219AC41C00367B27 /* 100.swift in Sources */,
 				7B44C36A21BA266F004E9A32 /* NewsItem.swift in Sources */,
 				2CB6568E2193E7380086798A /* ColorHelper.swift in Sources */,
 				2CCF8DDF21B4E5FA006F961A /* ProductDetails.swift in Sources */,
@@ -802,16 +837,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U963G6UMBK;
+				CODE_SIGN_ENTITLEMENTS = DrinkShopClient_IOS/DrinkShopClient_IOS.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = PY8GD98FSY;
 				INFOPLIST_FILE = DrinkShopClient_IOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "nick.com.DrinkShopClient-IOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cp102.apns.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "CP102 APNS Test";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -825,14 +861,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U963G6UMBK;
+				CODE_SIGN_ENTITLEMENTS = DrinkShopClient_IOS/DrinkShopClient_IOS.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DrinkShopClient_IOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "nick.com.DrinkShopClient-IOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cp102.apns.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";

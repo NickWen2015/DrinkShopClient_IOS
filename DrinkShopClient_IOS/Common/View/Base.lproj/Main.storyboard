@@ -43,7 +43,7 @@
         <scene sceneID="0XW-9c-vnz">
             <objects>
                 <viewControllerPlaceholder storyboardName="ChatRoom" referencedIdentifier="ChatRoomNavigationView" id="R7J-Wj-It6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="LWZ-uH-KFu"/>
+                    <tabBarItem key="tabBarItem" title="線上客服" image="orderonline" selectedImage="orderonline_selected" id="LWZ-uH-KFu"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0T1-fG-DV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -172,5 +172,7 @@
         <image name="member" width="37.5" height="37.5"/>
         <image name="member_selected" width="37.5" height="37.5"/>
         <image name="news" width="37.5" height="37.5"/>
+        <image name="orderonline" width="37.5" height="37.5"/>
+        <image name="orderonline_selected" width="37.5" height="37.5"/>
     </resources>
 </document>
