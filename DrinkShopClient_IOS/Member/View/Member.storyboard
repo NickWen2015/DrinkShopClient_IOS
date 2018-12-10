@@ -509,7 +509,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tGV-e0-SbO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="563302293.83356702">
                                                         <!--2018-11-07 16:51:33 +0000-->
                                                     </date>
@@ -1543,11 +1543,56 @@
                             <outlet property="delegate" destination="XtG-Px-7Gi" id="aPh-ni-SHt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="優惠卷管理" id="tEd-YW-Lsb"/>
+                    <navigationItem key="navigationItem" title="優惠卷管理" id="tEd-YW-Lsb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="VtO-OW-pIN">
+                            <connections>
+                                <segue destination="TYZ-UD-mkc" kind="show" id="Ezi-m9-hrg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addCouponBarBtn" destination="VtO-OW-pIN" id="0jE-ph-LAz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sqx-2d-ONh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1508" y="1183.3583208395803"/>
+        </scene>
+        <!--Coupon View Controller-->
+        <scene sceneID="qXQ-pJ-Lfo">
+            <objects>
+                <viewController id="TYZ-UD-mkc" customClass="CouponViewController" customModule="DrinkShopClient_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aHe-Wp-h3F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XiF-Jy-ejn">
+                                <rect key="frame" x="133" y="429" width="122" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="點我拿優惠"/>
+                                <connections>
+                                    <action selector="couponBtnPressed:" destination="TYZ-UD-mkc" eventType="touchUpInside" id="Nkh-Fj-btj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oh4-LJ-UOy">
+                                <rect key="frame" x="83" y="164" width="208" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="L2e-64-mcK"/>
+                    </view>
+                    <connections>
+                        <outlet property="discountLabel" destination="Oh4-LJ-UOy" id="fO6-wQ-n3t"/>
+                        <outlet property="getCouponBtn" destination="XiF-Jy-ejn" id="KTU-Df-ACp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dAU-mk-h3e" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2585" y="1288"/>
         </scene>
     </scenes>
     <resources>

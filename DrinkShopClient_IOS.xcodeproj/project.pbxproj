@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2B14B09421969C0500EE6BC4 /* MemberFunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B14B09321969C0500EE6BC4 /* MemberFunctionViewController.swift */; };
+		2B1EF15421BE3864007A7D51 /* servishero_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B1EF15221BE3864007A7D51 /* servishero_loading.json */; };
+		2B1EF15521BE3864007A7D51 /* happybirthday.aep in Resources */ = {isa = PBXBuildFile; fileRef = 2B1EF15321BE3864007A7D51 /* happybirthday.aep */; };
+		2B1EF15721BE4859007A7D51 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1EF15621BE4859007A7D51 /* CouponViewController.swift */; };
 		2B20D9A32193FC80007EF9A9 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20D9A12193FC80007EF9A9 /* Communicator.swift */; };
 		2B20D9A42193FC80007EF9A9 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20D9A22193FC80007EF9A9 /* UIImage+Resize.swift */; };
 		2B21E03E21A5315A00B3AAC7 /* MemberHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21E03D21A5315A00B3AAC7 /* MemberHistoryTableViewController.swift */; };
@@ -30,7 +33,6 @@
 		2B5E322D21932F7800A04A50 /* Member.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E322C21932F7800A04A50 /* Member.storyboard */; };
 		2B5E322F2193398B00A04A50 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E322E2193398B00A04A50 /* MemberViewController.swift */; };
 		2B5E32402193D3F700A04A50 /* ChatRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E323F2193D3F700A04A50 /* ChatRoom.storyboard */; };
-		2BDA034A219AC40C00367B27 /* 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA0349219AC40C00367B27 /* 2.swift */; };
 		2BFC8EB721BC1F5400A8BE78 /* ChatCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8EB621BC1F5400A8BE78 /* ChatCommunicator.swift */; };
 		2BFC8EB921BC1F7E00A8BE78 /* OrderOnlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8EB821BC1F7E00A8BE78 /* OrderOnlineViewController.swift */; };
 		2BFC8EBB21BC210500A8BE78 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC8EBA21BC210500A8BE78 /* LogManager.swift */; };
@@ -97,6 +99,9 @@
 
 /* Begin PBXFileReference section */
 		2B14B09321969C0500EE6BC4 /* MemberFunctionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberFunctionViewController.swift; sourceTree = "<group>"; };
+		2B1EF15221BE3864007A7D51 /* servishero_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = servishero_loading.json; sourceTree = "<group>"; };
+		2B1EF15321BE3864007A7D51 /* happybirthday.aep */ = {isa = PBXFileReference; lastKnownFileType = file; path = happybirthday.aep; sourceTree = "<group>"; };
+		2B1EF15621BE4859007A7D51 /* CouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
 		2B20D9A12193FC80007EF9A9 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
 		2B20D9A22193FC80007EF9A9 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		2B21E03721A3004300B3AAC7 /* MemberModifyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberModifyTableViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +129,6 @@
 		2B5E323F2193D3F700A04A50 /* ChatRoom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatRoom.storyboard; sourceTree = "<group>"; };
 		2B8260A321A68A60003FC1DA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		2B8260C621A6CCC3003FC1DA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		2BDA0349219AC40C00367B27 /* 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2.swift; sourceTree = "<group>"; };
 		2BFC8EB621BC1F5400A8BE78 /* ChatCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCommunicator.swift; sourceTree = "<group>"; };
 		2BFC8EB821BC1F7E00A8BE78 /* OrderOnlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderOnlineViewController.swift; sourceTree = "<group>"; };
 		2BFC8EBA21BC210500A8BE78 /* LogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
@@ -335,7 +339,7 @@
 		2B71078C2193F35F0061CF64 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2BDA0349219AC40C00367B27 /* 2.swift */,
+				2B1EF15621BE4859007A7D51 /* CouponViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -386,6 +390,8 @@
 		2B86C97D218FE7AA00D93FC9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2B1EF15321BE3864007A7D51 /* happybirthday.aep */,
+				2B1EF15221BE3864007A7D51 /* servishero_loading.json */,
 				2B5E322C21932F7800A04A50 /* Member.storyboard */,
 			);
 			path = View;
@@ -566,6 +572,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1EF15521BE3864007A7D51 /* happybirthday.aep in Resources */,
 				2C9721702199642900BC5A06 /* img_product_subtract.png in Resources */,
 				2BFC8EC321BC211000A8BE78 /* fromMe.png in Resources */,
 				2BFC8EC421BC211000A8BE78 /* fromOthers.png in Resources */,
@@ -576,6 +583,7 @@
 				2CB656842193E6430086798A /* img_product_drink_shop.png in Resources */,
 				2CAF06DF219A5EB400374898 /* img_product_shoppingcart.png in Resources */,
 				2B310E60216A35A600EBAEA2 /* LaunchScreen.storyboard in Resources */,
+				2B1EF15421BE3864007A7D51 /* servishero_loading.json in Resources */,
 				2C9721712199642900BC5A06 /* img_product_add.png in Resources */,
 				2CB656862193E6430086798A /* img_product_size_m.png in Resources */,
 				2B310E5D216A35A600EBAEA2 /* Assets.xcassets in Resources */,
@@ -604,14 +612,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DrinkShopClient_IOS/Pods-DrinkShopClient_IOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -658,7 +666,6 @@
 				2B21E03E21A5315A00B3AAC7 /* MemberHistoryTableViewController.swift in Sources */,
 				2B21F4DF21BA914400534049 /* Coupon.swift in Sources */,
 				2B21E04221A531CA00B3AAC7 /* MemberCouponTableViewController.swift in Sources */,
-				2BDA034A219AC40C00367B27 /* 2.swift in Sources */,
 				2B21F4D321BA838700534049 /* MemberOrderDetailViewController.swift in Sources */,
 				2B21F4D521BA83BE00534049 /* Order.swift in Sources */,
 				2B20D9A42193FC80007EF9A9 /* UIImage+Resize.swift in Sources */,
@@ -673,6 +680,7 @@
 				2CCF8DD421A92584006F961A /* Login.swift in Sources */,
 				7B44C38221BA6E19004E9A32 /* ActivitiesViewController.swift in Sources */,
 				2B21F4E721BBE20300534049 /* MemberRegisterTableViewController.swift in Sources */,
+				2B1EF15721BE4859007A7D51 /* CouponViewController.swift in Sources */,
 				2CB6568D2193E7380086798A /* ProductPageViewController.swift in Sources */,
 				2CCF8DE121B6BD68006F961A /* ShoppingCartViewController.swift in Sources */,
 				2BFC8EB921BC1F7E00A8BE78 /* OrderOnlineViewController.swift in Sources */,

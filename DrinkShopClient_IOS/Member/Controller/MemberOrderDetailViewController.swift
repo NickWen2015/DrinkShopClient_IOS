@@ -72,6 +72,8 @@ class MemberOrderDetailViewController: UIViewController {
             assertionFailure("order is nil.")
             return
         }
+        
+        let discount = order.coupon_discount == 0 ? 10.0 : order.coupon_discount
         let orderDetailList = order.orderDetailList
         var tatol_product_quantity = 0
         var subTatolPrice = 0
@@ -87,6 +89,11 @@ class MemberOrderDetailViewController: UIViewController {
                 + item.size_name + " "
                 + String(item.product_quantity) + "杯 "
                 + String(subTatolPrice) + "元\n"
+        }
+        
+        tatolPrice = Int(Double(tatolPrice) * (discount/10))
+        if discount != 10.0 {
+            formatText += "已使用\(discount)折卷"
         }
         orderIdLabel.text = String(order.order_id)
         orderAcceptDateLabel.text = order.order_accept_time

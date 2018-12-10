@@ -1,28 +1,26 @@
 PODS:
   - Alamofire (4.8.0)
-  - SDWebImage (4.4.3):
-    - SDWebImage/Core (= 4.4.3)
-  - SDWebImage/Core (4.4.3)
+  - lottie-ios (2.5.2)
   - SQLite.swift (0.11.5):
     - SQLite.swift/standard (= 0.11.5)
   - SQLite.swift/standard (0.11.5)
 
 DEPENDENCIES:
   - Alamofire
-  - SDWebImage
+  - lottie-ios
   - SQLite.swift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - SDWebImage
+    - lottie-ios
     - SQLite.swift
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
-  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
+  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
 
-PODFILE CHECKSUM: 87f3edc1b73b4b3a08a84ad133c4bb985848085a
+PODFILE CHECKSUM: be698ae241b737f649f6abf3f736a9f3ea93b8cc
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.2

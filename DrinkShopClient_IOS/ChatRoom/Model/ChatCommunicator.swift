@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-let GROUPNAME = "CP102"
+let GROUPNAME = "CP101"
 //let MY_NAME = "test2"
 
 // JSON Keys (固定)

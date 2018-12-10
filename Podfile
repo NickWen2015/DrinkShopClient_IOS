@@ -10,6 +10,7 @@ target 'DrinkShopClient_IOS' do
   # Pods for DrinkShopClient_IOS
 pod 'Alamofire'
 pod 'SQLite.swift'
+pod 'lottie-ios'
 end
 
 

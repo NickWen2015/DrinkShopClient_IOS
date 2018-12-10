@@ -78,12 +78,14 @@ class MemberHistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! MemberHistoryTableViewCell
+        let discount = objects[indexPath.row].coupon_discount == 0 ? 10.0 : objects[indexPath.row].coupon_discount
         let orderDetailList = objects[indexPath.row].orderDetailList
         var tatol_product_quantity = 0
         var tatolPrice = 0
         for item in orderDetailList {
             tatolPrice += Int(item.product_price) * item.product_quantity
             tatol_product_quantity += item.product_quantity
+            tatolPrice = Int(Double(tatolPrice) * (discount/10))
         }
         cell.orderIdLabel?.text = String(objects[indexPath.row].order_id)
         cell.orderTotalPriceLabel?.text = String(tatolPrice) + "元"

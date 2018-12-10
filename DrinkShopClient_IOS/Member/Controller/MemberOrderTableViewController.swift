@@ -15,6 +15,11 @@ class MemberOrderTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         //檢查是否登入才撈訂單
         guard let isLogin = UserDefaults.standard.value(forKey: "isLogin") as? Bool, let member_id = UserDefaults.standard.value(forKey: "member_id") as? Int else {
@@ -61,7 +66,12 @@ class MemberOrderTableViewController: UITableViewController {
                 }
             }
         }
-       
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        objects.removeAll()
     }
 
     // MARK: - Table view data source
@@ -82,10 +92,14 @@ class MemberOrderTableViewController: UITableViewController {
         let orderDetailList = objects[indexPath.row].orderDetailList
         var tatol_product_quantity = 0
         var tatolPrice = 0
+        let discount = objects[indexPath.row].coupon_discount == 0 ? 10.0 : objects[indexPath.row].coupon_discount
+        
         for item in orderDetailList {
             tatolPrice += Int(item.product_price) * item.product_quantity
             tatol_product_quantity += item.product_quantity
+            tatolPrice = Int(Double(tatolPrice) * (discount/10))
         }
+       
         cell.orderIdLabel?.text = String(objects[indexPath.row].order_id)
         cell.orderTotalPriceLabel?.text = String(tatolPrice) + "元"
         cell.orderQuantityLabel?.text = String(tatol_product_quantity) + "杯"

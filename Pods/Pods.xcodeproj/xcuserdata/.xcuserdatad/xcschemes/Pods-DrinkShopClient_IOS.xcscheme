@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "193D3BE194A2029697C8260648018F99"
+               BlueprintIdentifier = "D11E3C2D5DB1FB643EA8B0B09363D11A"
                BlueprintName = "Pods-DrinkShopClient_IOS"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Pods-DrinkShopClient_IOS.framework">

@@ -7,14 +7,22 @@
 //
 
 import UIKit
+import Lottie
 
 class MemberCouponTableViewController: UITableViewController {
     
     var objects = [Coupon]()
     let communicator = Communicator.shared
-
+    @IBOutlet weak var addCouponBarBtn: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        addCouponBarBtn.isEnabled = false//預設無法按
         
         guard let isLogin = UserDefaults.standard.value(forKey: "isLogin") as? Bool, let member_id = UserDefaults.standard.value(forKey: "member_id") as? Int else {
             assertionFailure("member is not login or member_id is nil")
@@ -44,7 +52,11 @@ class MemberCouponTableViewController: UITableViewController {
                     print(" Fail to decode jsonData.")
                     return
                 }
+                self.addCouponBarBtn.isEnabled = true
                 for couponItem in resultObject {
+                    if couponItem.coupon_status == "0" {
+                        self.addCouponBarBtn.isEnabled = false
+                    }
                     self.objects.append(couponItem)
                 }
                 
@@ -57,9 +69,15 @@ class MemberCouponTableViewController: UITableViewController {
                         "您沒有優惠卷！", preferredStyle: UIAlertController.Style.alert)
                     alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
                     self.present(alertController, animated: false, completion: nil)
+                    self.addCouponBarBtn.isEnabled = true
                 }
             }
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        objects.removeAll()
     }
 
     // MARK: - Table view data source
@@ -90,7 +108,8 @@ class MemberCouponTableViewController: UITableViewController {
         
         return cell
     }
-
+       
+    
     /*
     // MARK: - Navigation
 
