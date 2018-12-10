@@ -66,7 +66,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hln-1a-C9r"/>
                     </view>
-                    <navigationItem key="navigationItem" title="即時服務" id="LvW-ce-txx"/>
+                    <navigationItem key="navigationItem" title="即時服務" id="LvW-ce-txx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="V9T-DR-e0X">
+                            <connections>
+                                <action selector="doneBarBtnPressed:" destination="ADa-JF-0q6" id="xyf-zo-Nj9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="chatView" destination="pvd-fg-ZTh" id="JRv-Ru-961"/>
                         <outlet property="inputTextField" destination="ftB-Ya-7m6" id="ooU-YO-yvb"/>

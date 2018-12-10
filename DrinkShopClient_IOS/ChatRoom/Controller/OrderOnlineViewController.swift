@@ -320,8 +320,12 @@ class OrderOnlineViewController: UIViewController, UIImagePickerControllerDelega
                 self.doRefreshJob()
             }
         }
-        
-        
+    
+    //按下Done收鍵盤
+    @IBAction func doneBarBtnPressed(_ sender: UIBarButtonItem) {
+        inputTextField.resignFirstResponder()
+    }
+    
     }
     
     struct RetriveResult: Codable {

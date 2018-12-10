@@ -70,10 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }.joined()//joined() >> string array to string
         print("tokenString: \(tokenString)")
         
-        guard let _ = UserDefaults.standard.value(forKey: "isLogin") as? Bool, let member_name = UserDefaults.standard.value(forKey: "member_name") as? String else {
-            assertionFailure("member_name is nil.")
-            return
+        var member_name = "訪客"
+        if let name = UserDefaults.standard.value(forKey: "member_name") as? String {
+            member_name = name
         }
+        
         ChatCommunicator.shared.update(deviceToken: tokenString, userName: member_name) {
             (result, error) in
             if let error = error {
