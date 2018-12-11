@@ -62,12 +62,10 @@ class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UI
                     continue
                 }
                 self.newsIdArray.append(newsId)
-                
-                if self.newsIdArray.count == 3 {
-                    break
-                }
+
             }
             self.newsIdArray.append(self.newsIdArray[0])
+            
             DispatchQueue.main.async {
                 
                 self.activityCollectionView.reloadData()
@@ -114,7 +112,6 @@ class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UI
         let id = self.newsIdArray[indexPath.row]
      
         
-        //cell.activityImageView.image = UIImage(named: imageNames[indexPath.row])
         
         if let image = imageDic[id] {
             cell.activityImageView.image = image
@@ -131,14 +128,9 @@ class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UI
                         cell.activityImageView.image = image
                         
                     }
-                    
                 }
-                
             }
         }
-        
-       
-
         return cell
     }
     
