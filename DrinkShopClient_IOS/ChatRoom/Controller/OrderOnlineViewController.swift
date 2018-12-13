@@ -194,7 +194,14 @@ class OrderOnlineViewController: UIViewController, UIImagePickerControllerDelega
         
         //Prepare for ChatItem.
         let text = "\(item.userName): \(item.message) (\(item.id))"
-        let type: ChatSenderType = (item.userName == self.userName ? .fromMe : .fromOthers)
+        var type: ChatSenderType
+        if item.userName == self.userName {
+           type = .fromMe
+        } else {
+           type = .fromOthers
+        }
+        
+//        let type: ChatSenderType = (item.userName == self.userName ? .fromMe : .fromOthers)
         
         var chatItem = ChatItem(text: text, image: nil, senderType: type)
         
