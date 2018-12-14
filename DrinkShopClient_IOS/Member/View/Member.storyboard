@@ -307,6 +307,7 @@
                         <outlet property="accountTextField" destination="fTd-hT-pzw" id="pCB-bm-GUn"/>
                         <outlet property="passwordTextField" destination="tQJ-Zj-2Lf" id="Xws-N7-cFZ"/>
                         <segue destination="6cu-mt-Xcx" kind="unwind" identifier="CancelForMemberFunction" unwindAction="unwindToMemberFunctionViewController:" id="LIm-PH-a2p"/>
+                        <segue destination="6cu-mt-Xcx" kind="unwind" identifier="unwindToShoppingCart" unwindAction="unwindToShoppingCartViewController:" id="9ph-Nd-tbm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNy-K7-5bI" userLabel="First Responder" sceneMemberID="firstResponder"/>

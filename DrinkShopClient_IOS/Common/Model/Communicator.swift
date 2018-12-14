@@ -44,6 +44,8 @@ class Communicator {  //Singleton instance 單一實例模式
     let COUPONSERVLET_URL = BASEURL + "CouponServlet"
     let ORDERSERVLET_URL = BASEURL + "OrdersServlet"
     
+    let PRODUCT_PHOTO_URL = Common.SERVER_URL + "ProductServlet"
+    
     static let shared = Communicator()
     private init() {
         

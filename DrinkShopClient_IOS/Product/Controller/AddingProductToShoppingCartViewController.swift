@@ -24,6 +24,8 @@ class AddingProductToShoppingCartViewController: UIViewController {
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productImage: UIImageView!
     
+    let communicator = Communicator.shared  // 傳送資料用
+    
     static var AddingProductTableVC: AddingProductToShoppingCartTableViewController!
     var delegate: AddingProductToShoppingCartTableFetchDataDelegate!
     let logSQLite = LogSQLite.init()  // 資料庫
@@ -56,10 +58,23 @@ class AddingProductToShoppingCartViewController: UIViewController {
             return
         }
         quantityLabel.text = String(quantity)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-//        AddingProductToShoppingCartViewController.AddingProductTableVC = nil
+        
+        // TODO: - 設定 image
+        guard let id = product_id else {
+            PrintHelper.println(tag: "AddingProductToShoppingCV", line: #line, "ERROR: product_id is nil")
+            return
+        }
+        Communicator.shared.getPhotoById(photoURL: communicator.PRODUCT_PHOTO_URL, id: id) { (result, error) in
+            guard let data = result else {
+                return
+            }
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data) {
+                    self.productImage.image = image
+                }
+            }
+        }
+        
     }
     
     // ------- //

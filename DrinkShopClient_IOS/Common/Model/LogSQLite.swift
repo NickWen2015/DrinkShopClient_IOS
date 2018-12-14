@@ -165,6 +165,19 @@ class LogSQLite {
 // MARK: - ShoppingCart
 extension LogSQLite {
     
+    func getShoppingCartCount() -> Int {
+        var count = 0
+        do {
+            for _ in try db.prepare(logTable_shoppingCart) {
+                count += 1
+            }
+        } catch {
+            PrintHelper.println(tag: "LogSQLite", line: #line, "ERROR: Search All Product In ShoppingCart")
+            assertionFailure("\(#line) Fail to searchAllProductInShoppingCart: \(error)")
+        }
+        return count
+    }
+    
     // 新增購買的商品
     func appendSelectProduct(_ shoppingCart: ShoppingCart) {
         let productId = shoppingCart.getProductId()

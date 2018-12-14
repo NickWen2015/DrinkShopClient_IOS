@@ -60,6 +60,7 @@ class ShoppingCartListTableViewCell: UITableViewCell {
         logSQLite.deleteSelectProduct(id: shoppingCarContent!.getId())
         tableView.reloadData()
         shoppingCartViewController.setTotalCapAndTotalAmount()
+        shoppingCartViewController.setShoppingCartListHiddenStatus()
     }
 
     override func awakeFromNib() {

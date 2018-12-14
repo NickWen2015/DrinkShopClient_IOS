@@ -12,6 +12,10 @@ class ShoppingCartTableViewController: UITableViewController {
     
     var shoppingCartList: [ShoppingCart]!
     
+    var imageDic = [Int: UIImage]()
+    
+    let communicator = Communicator.shared  // 傳送資料用
+    
     static var ShoppingCartVC: ShoppingCartViewController!
     
     override func viewDidLoad() {
@@ -45,6 +49,27 @@ class ShoppingCartTableViewController: UITableViewController {
         cell.shoppingCarContent = shoppingCartList[indexPath.row]
         cell.tableView = tableView
         cell.shoppingCartViewController = ShoppingCartTableViewController.ShoppingCartVC
+        cell.selectionStyle = .none  // 取消選取狀態
+        // TODO: - 設定 image
+        let shoppingCart = shoppingCartList[indexPath.row]
+        let id = shoppingCart.getProductId()
+        if let image = imageDic[id] {
+            cell.productImageView.image = image
+        } else {
+            cell.productImageView.image = nil
+            
+            Communicator.shared.getPhotoById(photoURL: communicator.PRODUCT_PHOTO_URL, id: id) { (result, error) in
+                guard let data = result else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    if let image = UIImage(data: data) {
+                        self.imageDic[id] = image
+                        cell.productImageView.image = image
+                    }
+                }
+            }
+        }
         
         return cell
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import CoreLocation
 
 class MemberCouponTableViewController: UITableViewController {
     
@@ -15,12 +16,38 @@ class MemberCouponTableViewController: UITableViewController {
     let communicator = Communicator.shared
     @IBOutlet weak var addCouponBarBtn: UIBarButtonItem!
     
+    // beacon
+    let beaconUUID = UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935")
+    var beaconRegion: CLBeaconRegion!
+    
+    let manager = CLLocationManager()
+    // /beacon
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // beacon
+        manager.requestAlwaysAuthorization()
+        manager.delegate = self
+        
+        // Prepare beaconRegion
+        beaconRegion = CLBeaconRegion(proximityUUID: beaconUUID!, identifier: "Beacon")
+        beaconRegion.notifyOnEntry = true
+        beaconRegion.notifyOnExit = true
+        
+        
+        // /beacon
     }
+    
+    // beacon
+    override func viewWillDisappear(_ animated: Bool) {
+        manager.stopMonitoring(for: beaconRegion)
+        manager.stopRangingBeacons(in: beaconRegion)
+    }
+    // /beacon
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        manager.startMonitoring(for: beaconRegion)
         
         addCouponBarBtn.isEnabled = false//預設無法按
         
@@ -52,6 +79,7 @@ class MemberCouponTableViewController: UITableViewController {
                     print(" Fail to decode jsonData.")
                     return
                 }
+                
                 self.addCouponBarBtn.isEnabled = true
                 for couponItem in resultObject {
                     if couponItem.coupon_status == "0" {
@@ -63,14 +91,23 @@ class MemberCouponTableViewController: UITableViewController {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
+                
                 if self.objects.count == 0 {
-                    //沒有優惠卷資料
-                    let alertController = UIAlertController(title: "無資料", message:
-                        "您沒有優惠卷！", preferredStyle: UIAlertController.Style.alert)
+                    let alertController = UIAlertController(title: "沒有優惠卷！", message:
+                        "", preferredStyle: UIAlertController.Style.alert)
                     alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
                     self.present(alertController, animated: false, completion: nil)
                     self.addCouponBarBtn.isEnabled = true
                 }
+                
+//                if self.objects.count == 0 {
+//                    //沒有優惠卷資料
+//                    let alertController = UIAlertController(title: "無資料", message:
+//                        "您沒有優惠卷！", preferredStyle: UIAlertController.Style.alert)
+//                    alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
+//                    self.present(alertController, animated: false, completion: nil)
+//                    self.addCouponBarBtn.isEnabled = true
+//                }
             }
         }
     }
@@ -120,4 +157,45 @@ class MemberCouponTableViewController: UITableViewController {
     }
     */
 
+}
+
+
+extension MemberCouponTableViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
+        manager.requestState(for: region)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
+        if state == .inside {
+            let alertController = UIAlertController(title: "恭喜獲得抽獎機會\n快按右上角的+來抽獎吧！", message:
+                "", preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
+            self.present(alertController, animated: false, completion: nil)
+            
+            manager.startRangingBeacons(in: region as! CLBeaconRegion)
+        } else {  // .outside
+
+            manager.stopRangingBeacons(in: region as! CLBeaconRegion)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        for beacon in beacons {
+            switch beacon.proximity {
+            case .unknown:
+                addCouponBarBtn.isEnabled = false
+                break
+            case .immediate:
+                addCouponBarBtn.isEnabled = true
+                break
+            case .near:
+                addCouponBarBtn.isEnabled = true
+                break
+            case .far:
+                addCouponBarBtn.isEnabled = true
+                break
+            }
+            
+        }
+    }
 }

@@ -8,6 +8,11 @@
 
 import UIKit
 
+extension MemberViewController: LoginToMemberViewFetchDataDelegate {
+    func fetchData(from: String) {
+        self.from = from
+    }
+}
 
 class MemberViewController: UIViewController {
     
@@ -15,6 +20,7 @@ class MemberViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     var member: Member?
     var login: Login!
+    var from = ""
     
     let communicator = Communicator.shared
 
@@ -92,9 +98,16 @@ class MemberViewController: UIViewController {
                     self.login.setUserDefaultsLogin(member_id: member_id, member_name: member_name, member_sex: member_sex)
                     
 //                    self.member = memberObject
+                    print("from: \(self.from)")
+                    if self.from == "ShoppingCart" {
+                        self.performSegue(withIdentifier: "unwindToShoppingCart", sender: self)
+                        return
+                    }
+                    
                     //開逃生門到會員頁
                     self.performSegue(withIdentifier: "CancelForMemberFunction", sender: self)
                     return
+                    
                 })
                 
             } else {

@@ -15,3 +15,11 @@ protocol AddingProductToShoppingCartFetchDataDelegate {
 protocol AddingProductToShoppingCartTableFetchDataDelegate {
     func fetchData(size: Int, sugar: Int, temperature: Int)
 }
+
+protocol LoginToMemberViewFetchDataDelegate {
+    func fetchData(from: String)
+}
+
+protocol ProductCouponToShoppingCart {
+    func fetchData(coupon: Coupon)
+}

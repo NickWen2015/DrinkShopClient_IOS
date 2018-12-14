@@ -19,8 +19,28 @@ extension ProductPageViewController: UITableViewDelegate, UITableViewDataSource 
         cell.selectionStyle = .none  // 取消選取狀態
         let product = productArray[indexPath.row]
         cell.productContent = product
-        
         cell.productQuantityContent = logSQLite.searchProductQuantityInShoppingCart(productName: product.getName())
+        
+        // TODO: - 設定 image
+        let id = product.getId()
+        if let image = imageDic[id] {
+            cell.productImage.image = image
+        } else {
+            cell.productImage.image = nil
+            
+            Communicator.shared.getPhotoById(photoURL: communicator.PRODUCT_PHOTO_URL, id: id) { (result, error) in
+                guard let data = result else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    if let image = UIImage(data: data) {
+                        self.imageDic[id] = image
+                        cell.productImage.image = image
+                    }
+                }
+            }
+        }
+        
         return cell
     }
     
@@ -37,6 +57,9 @@ class ProductPageViewController: UIViewController {
     @IBOutlet weak var productListTableView: UITableView!
     
     var version: Int? = nil
+    var imageDic = [Int: UIImage]()
+    
+    let communicator = Communicator.shared  // 傳送資料用
     
     var categoryArray: [Category] = []  // 類別陣列
     var productArray: [Product] = []  // 選擇的類別的商品陣列
@@ -45,7 +68,6 @@ class ProductPageViewController: UIViewController {
     
     var tableView: UITableView!
     
-    let communicator = Communicator.shared  // 傳送資料用
     let logSQLite = LogSQLite.init()  // 資料庫
     
     var completionRate = 0
@@ -53,15 +75,19 @@ class ProductPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let version = logSQLite.searchCurrentVersion() else {
-            PrintHelper.println(tag: "ProductPageViewController", line: #line, "ERROR: search current version is nil ")
-            return
-        } // SQLite 版本編號
-        versionSynchronization(lastVersion: version)
+        // 顯示全部的類別
+        self.showAllCategory()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        completionRate = 0
+        productListTableView.reloadData()
+        
+        guard let version = logSQLite.searchCurrentVersion() else {
+            PrintHelper.println(tag: "ProductPageViewController", line: #line, "ERROR: search current version is nil ")
+            return
+        }
+        // SQLite 版本編號
+        versionSynchronization(lastVersion: version)
     }
     
     // button 的觸發事件x
@@ -74,6 +100,14 @@ class ProductPageViewController: UIViewController {
         PrintHelper.println(tag: "ProductPageViewController", line: #line, "PASSED: category: \(category)")
         productArray = logSQLite.searchProductInCategory(to: category)
         PrintHelper.println(tag: "ProductPageViewController", line: #line, "PASSED: productArray: \(productArray)")
+        
+        guard let version = logSQLite.searchCurrentVersion() else {
+            PrintHelper.println(tag: "ProductPageViewController", line: #line, "ERROR: search current version is nil ")
+            return
+        }
+        // SQLite 版本編號
+        versionSynchronization(lastVersion: version)
+        
         productListTableView.reloadData()
     }
     
@@ -156,13 +190,17 @@ extension ProductPageViewController {
 
             PrintHelper.println(tag: "ProductPageViewController", line: #line, "PASSED: \(#function) OK.")
 
+            // 清除所有的 categoryView
+            self.categoryView.deleteOld()
 
             // 將資料與UI相連
             self.linkCategoryUI()
             
             // 設置初始畫面
             self.completionRate += 1
-            self.setTheInitialScreen()
+            if !(self.completionRate >= 3) {
+                self.setTheInitialScreen()
+            }
         }
     }
     
@@ -206,19 +244,21 @@ extension ProductPageViewController {
                 return
             }
 
-            // 顯示全部的類別
-            self.showAllCategory()
-
             // 版本是否同步
-            let isSynchronization = (nowVersion != lastVersion)
-            if isSynchronization {
+            let isNotSynchronization = (nowVersion != lastVersion)
+            if isNotSynchronization {
+                // 顯示全部的類別
+                self.showAllCategory()
+                
                 // 準備全部商品資料 存 SQLite
                 self.getAllProductSaveSQLite()
                 self.version = nowVersion
             } else {
                 // 設置初始畫面
                 self.completionRate += 1
-                self.setTheInitialScreen()
+                if !(self.completionRate >= 3) {
+                    self.setTheInitialScreen()
+                }
             }
             
         }

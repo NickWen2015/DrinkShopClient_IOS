@@ -28,7 +28,7 @@ struct Order: Codable {
     var store_location_x: String = ""//緯精度x
     var store_location_y: String = ""//緯精度y
     var coupon_discount: Double = 10.0//預設沒打折
-    var orderDetailList: [OrderDetail]//訂單內容
+    var orderDetailList: [OrderDetail] = []//訂單內容
 }
 
 struct OrderDetail: Codable {

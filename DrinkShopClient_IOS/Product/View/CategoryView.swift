@@ -19,6 +19,14 @@ class CategoryView: UIScrollView {
     private let padding: CGFloat = 0.0
     public var lastViewX: CGFloat = 0.0
     private let buttonPadding = 0
+    
+    func deleteOld() {
+        
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
+        lastViewX = 0.0
+    }
      
     func add(target: UIViewController, categoryItem: CategoryItem) {
         

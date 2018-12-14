@@ -11,9 +11,15 @@ import UIKit
 class Login {
     
     let view: UIViewController!
+    var from = ""
     
     init(view: UIViewController) {
         self.view = view
+    }
+    
+    init(view: UIViewController, from: String) {
+        self.view = view
+        self.from = from
     }
     
     func login() {
@@ -38,7 +44,11 @@ class Login {
     }
     
     func loginController() -> UIViewController? {
-        let controller: UIViewController = ((view.storyboard?.instantiateViewController(withIdentifier: "MemberView"))!)
+        let storyboard = UIStoryboard(name: "Member", bundle: nil)
+        let controller: UIViewController = storyboard.instantiateViewController(withIdentifier: "MemberView")
+        let delegate: LoginToMemberViewFetchDataDelegate!
+        delegate = controller as! MemberViewController
+        delegate.fetchData(from: from)
         return controller
     }
     
