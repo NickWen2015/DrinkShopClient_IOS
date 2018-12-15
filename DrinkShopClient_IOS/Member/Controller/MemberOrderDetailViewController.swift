@@ -25,7 +25,11 @@ class MemberOrderDetailViewController: UIViewController {
         super.viewDidLoad()
         
         //產生QRcode圖片
-        guard let url = URL(string: "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=\(String(describing: order?.order_id))") else {
+        guard let id = order?.order_id else {
+            assertionFailure("Order is nil.")
+            return
+        }
+        guard let url = URL(string: "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=\(String(describing: id))") else {
             assertionFailure("Invliad url.")
             return
         }
