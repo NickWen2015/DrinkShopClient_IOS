@@ -1138,6 +1138,8 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="wg5-a4-XYo" secondAttribute="height" multiplier="1:1" id="FFF-Na-whF"/>
+                                                                        <constraint firstAttribute="width" constant="90" id="KZy-k2-hER"/>
+                                                                        <constraint firstAttribute="height" constant="90" id="Pi0-W4-JA5"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEh-tj-ljB">
