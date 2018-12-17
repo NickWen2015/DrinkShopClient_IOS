@@ -20,12 +20,13 @@ class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UI
     var newsIdArray = [Int]()
     var imageArray = [Data]()
     var imageIndex = 0
+    var time: Timer!
     
     let PHOTO_URL = Common.SERVER_URL + "NewsServlet"
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         activityCollectionView.delegate = self
         activityCollectionView.dataSource = self
         
@@ -56,7 +57,7 @@ class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UI
                 return
             }
             
-            
+            self.newsIdArray = []
             for newsItem in resultObject {
                 guard let newsId = newsItem.id else {
                     continue
@@ -70,12 +71,20 @@ class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UI
                 
                 self.activityCollectionView.reloadData()
                 //每隔3秒轉換圖片
-                Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.changeBanner), userInfo: nil, repeats: true)
+                self.time = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.changeBanner), userInfo: nil, repeats: true)
             }
          
         }
 
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if time != nil {
+            time?.invalidate()
+        }
+    }
+    
+   
     @IBAction func unwindToActivities(_ unwindSegue: UIStoryboardSegue) { }
     
     

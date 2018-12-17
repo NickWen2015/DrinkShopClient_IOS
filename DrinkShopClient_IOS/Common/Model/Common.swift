@@ -10,7 +10,7 @@ import Foundation
 
 struct Common {
     //連線SERVER_URL(網址ip須根據當下網路偏好設定內網路位址自行更改)
-   static let SERVER_URL = "http://192.168.1.85:8080/DrinkShop_Web/"
+   static let SERVER_URL = "http://192.168.196.119:8080/DrinkShop_Web/"
    
     // 依傳入的日期格式、日期轉換成日期
     // - Parameters:
