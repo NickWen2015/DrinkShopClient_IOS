@@ -77,13 +77,6 @@ class CouponViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
             discountLabel.text = "恭喜您獲得\(discountText)折優惠卷！"
-            
-            //存取優惠卷時間
-            let date = Date()
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
-            let dateNow = formatter.string(from: date)
-            UserDefaults.standard.set(dateNow, forKey: "dateNowStamp")
         }
        
     }

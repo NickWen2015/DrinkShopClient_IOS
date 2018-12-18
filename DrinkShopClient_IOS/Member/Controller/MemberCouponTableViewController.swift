@@ -17,7 +17,7 @@ class MemberCouponTableViewController: UITableViewController {
     @IBOutlet weak var addCouponBarBtn: UIBarButtonItem!
     
     // beacon
-    let beaconUUID = UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935")
+    let beaconUUID = UUID(uuidString: "74278BDA-B655-4520-8F0C-720EAF059935")
     var beaconRegion: CLBeaconRegion!
     
     let manager = CLLocationManager()
@@ -202,6 +202,13 @@ extension MemberCouponTableViewController: CLLocationManagerDelegate {
                 break
             }            
         }
+        
+        //存取優惠卷時間
+        let date = Date() 
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let dateNow = formatter.string(from: date)
+        UserDefaults.standard.set(dateNow, forKey: "dateNowStamp")
     }
     
     func checkStatus(manager: CLLocationManager, state: CLRegionState,  region: CLRegion) {
