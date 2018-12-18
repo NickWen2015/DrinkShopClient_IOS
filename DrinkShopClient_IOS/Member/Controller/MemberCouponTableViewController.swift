@@ -166,17 +166,23 @@ extension MemberCouponTableViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
-        if state == .inside {
-            let alertController = UIAlertController(title: "恭喜獲得抽獎機會\n快按右上角的+來抽獎吧！", message:
-                "", preferredStyle: UIAlertController.Style.alert)
-            alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
-            self.present(alertController, animated: false, completion: nil)
-            
-            manager.startRangingBeacons(in: region as! CLBeaconRegion)
-        } else {  // .outside
-
-            manager.stopRangingBeacons(in: region as! CLBeaconRegion)
+        //存取優惠卷時間
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let dateNow = formatter.string(from: date)
+      
+        if let dateNowStamp = UserDefaults.standard.value(forKey: "dateNowStamp") as? String {
+            print("dateNowStamp is : \(dateNowStamp).")
+            print("dateNow is : \(dateNow).")
+            if dateNowStamp != dateNow {
+                checkStatus(manager: manager, state: state, region: region)
+            }
+        } else {//When dateNowStamp is nil.
+            print("dateNowStamp is nil.")
+            checkStatus(manager: manager, state: state, region: region)
         }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
@@ -194,8 +200,20 @@ extension MemberCouponTableViewController: CLLocationManagerDelegate {
             case .far:
                 addCouponBarBtn.isEnabled = true
                 break
-            }
+            }            
+        }
+    }
+    
+    func checkStatus(manager: CLLocationManager, state: CLRegionState,  region: CLRegion) {
+        if state == .inside {
+            let alertController = UIAlertController(title: "恭喜獲得抽獎機會\n快按右上角的+來抽獎吧！", message:
+                "", preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
+            self.present(alertController, animated: false, completion: nil)
             
+            manager.startRangingBeacons(in: region as! CLBeaconRegion)
+        } else {  // .outside
+            manager.stopRangingBeacons(in: region as! CLBeaconRegion)
         }
     }
 }
