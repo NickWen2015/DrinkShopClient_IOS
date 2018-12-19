@@ -82,9 +82,9 @@ class MemberCouponTableViewController: UITableViewController {
                 
                 self.addCouponBarBtn.isEnabled = true
                 for couponItem in resultObject {
-                    if couponItem.coupon_status == "0" {
-                        self.addCouponBarBtn.isEnabled = false
-                    }
+//                    if couponItem.coupon_status == "0" {
+//                        self.addCouponBarBtn.isEnabled = false
+//                    }
                     self.objects.append(couponItem)
                 }
                 
@@ -100,14 +100,6 @@ class MemberCouponTableViewController: UITableViewController {
                     self.addCouponBarBtn.isEnabled = true
                 }
                 
-//                if self.objects.count == 0 {
-//                    //沒有優惠卷資料
-//                    let alertController = UIAlertController(title: "無資料", message:
-//                        "您沒有優惠卷！", preferredStyle: UIAlertController.Style.alert)
-//                    alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
-//                    self.present(alertController, animated: false, completion: nil)
-//                    self.addCouponBarBtn.isEnabled = true
-//                }
             }
         }
     }
@@ -204,7 +196,7 @@ extension MemberCouponTableViewController: CLLocationManagerDelegate {
         }
         
         //存取優惠卷時間
-        let date = Date() 
+        let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let dateNow = formatter.string(from: date)
