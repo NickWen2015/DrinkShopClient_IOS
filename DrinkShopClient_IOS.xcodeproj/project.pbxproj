@@ -351,12 +351,12 @@
 		2B71078D2193F36B0061CF64 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2B20D9A12193FC80007EF9A9 /* Communicator.swift */,
 				2B20D9A22193FC80007EF9A9 /* UIImage+Resize.swift */,
 				2CB6568B2193E7380086798A /* ColorHelper.swift */,
 				2CCF8DD321A92584006F961A /* Login.swift */,
 				2BFE784D21900F42005CD0D9 /* Common.swift */,
 				2C989A26219D512400ABA026 /* LogSQLite.swift */,
+				2B20D9A12193FC80007EF9A9 /* Communicator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

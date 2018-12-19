@@ -14,6 +14,8 @@ class CouponViewController: UIViewController {
     @IBOutlet weak var discountLabel: UILabel!
     @IBOutlet weak var getCouponBtn: UIButton!
     
+    var from: String!
+    
     let communicator = Communicator.shared
     var member_id: Int = 0
     override func viewDidLoad() {
@@ -29,6 +31,7 @@ class CouponViewController: UIViewController {
     @IBAction func couponBtnPressed(_ sender: UIButton) {
         
         if member_id != 0 {
+            
             let coupon = generateCoupon(member_id: member_id)
             
             let encoder = JSONEncoder()
@@ -77,6 +80,15 @@ class CouponViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
             discountLabel.text = "恭喜您獲得\(discountText)折優惠卷！"
+            
+            if from == "Shop" {
+                //存取優惠卷時間
+                let date = Date()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let dateNow = formatter.string(from: date)
+                UserDefaults.standard.set(dateNow, forKey: "dateNowStamp")
+            }
         }
        
     }
@@ -88,12 +100,17 @@ class CouponViewController: UIViewController {
         let discount = Int.random(in: 1...9)
         let coupon_discount = Double(discount)
         
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let dateNow = formatter.string(from: date)
+        
         coupon = Coupon(coupon_id: 0,
                             member_id: member_id,
                             coupon_no: "123",
                             coupon_discount: coupon_discount,
                             coupon_status: "0",
-                            coupon_start: "2018-12-21",
+                            coupon_start: dateNow,
                             coupon_end: "2019-01-21")        
         return coupon
     }

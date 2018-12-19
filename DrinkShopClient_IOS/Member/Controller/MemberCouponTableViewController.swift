@@ -12,6 +12,8 @@ import CoreLocation
 
 class MemberCouponTableViewController: UITableViewController {
     
+    var from = ""
+    
     var objects = [Coupon]()
     let communicator = Communicator.shared
     @IBOutlet weak var addCouponBarBtn: UIBarButtonItem!
@@ -80,7 +82,7 @@ class MemberCouponTableViewController: UITableViewController {
                     return
                 }
                 
-                self.addCouponBarBtn.isEnabled = true
+                self.addCouponBarBtn.isEnabled = false
                 for couponItem in resultObject {
 //                    if couponItem.coupon_status == "0" {
 //                        self.addCouponBarBtn.isEnabled = false
@@ -98,6 +100,7 @@ class MemberCouponTableViewController: UITableViewController {
                     alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
                     self.present(alertController, animated: false, completion: nil)
                     self.addCouponBarBtn.isEnabled = true
+                    self.from = "noCoupon"
                 }
                 
             }
@@ -139,15 +142,14 @@ class MemberCouponTableViewController: UITableViewController {
     }
        
     
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let couponVC = segue.destination as! CouponViewController
+        couponVC.from = from
+        
     }
-    */
+ 
 
 }
 
@@ -195,12 +197,7 @@ extension MemberCouponTableViewController: CLLocationManagerDelegate {
             }            
         }
         
-        //存取優惠卷時間
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let dateNow = formatter.string(from: date)
-        UserDefaults.standard.set(dateNow, forKey: "dateNowStamp")
+        
     }
     
     func checkStatus(manager: CLLocationManager, state: CLRegionState,  region: CLRegion) {
@@ -209,7 +206,7 @@ extension MemberCouponTableViewController: CLLocationManagerDelegate {
                 "", preferredStyle: UIAlertController.Style.alert)
             alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
             self.present(alertController, animated: false, completion: nil)
-            
+            from = "Shop"
             manager.startRangingBeacons(in: region as! CLBeaconRegion)
         } else {  // .outside
             manager.stopRangingBeacons(in: region as! CLBeaconRegion)

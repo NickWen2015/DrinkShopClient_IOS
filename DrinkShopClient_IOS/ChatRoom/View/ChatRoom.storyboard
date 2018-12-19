@@ -9,82 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--OrderOnline-->
-        <scene sceneID="baR-QN-V6o">
-            <objects>
-                <viewController title="OrderOnline" id="ADa-JF-0q6" customClass="OrderOnlineViewController" customModule="DrinkShopClient_IOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5hN-9k-rKf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvd-fg-ZTh" customClass="ChatView" customModule="DrinkShopClient_IOS">
-                                <rect key="frame" x="0.0" y="64" width="375" height="445"/>
-                            </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhi-E7-IsC">
-                                <rect key="frame" x="7" y="555" width="62" height="30"/>
-                                <state key="normal" title="發送訊息"/>
-                                <connections>
-                                    <action selector="sendTextBtnPressed:" destination="ADa-JF-0q6" eventType="touchUpInside" id="egE-e0-5kA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n55-SI-MIm">
-                                <rect key="frame" x="85" y="555" width="62" height="30"/>
-                                <state key="normal" title="上傳圖片"/>
-                                <connections>
-                                    <action selector="sendPhotoBtnPressed:" destination="ADa-JF-0q6" eventType="touchUpInside" id="WzJ-09-cx7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASy-wC-ue5">
-                                <rect key="frame" x="306" y="555" width="62" height="30"/>
-                                <state key="normal" title="重新整理"/>
-                                <connections>
-                                    <action selector="refreshBtnPressed:" destination="ADa-JF-0q6" eventType="touchUpInside" id="aOd-9F-Wzf"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ftB-Ya-7m6">
-                                <rect key="frame" x="7" y="517" width="361" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="pvd-fg-ZTh" firstAttribute="trailing" secondItem="Hln-1a-C9r" secondAttribute="trailing" id="8Wa-UI-Dgi"/>
-                            <constraint firstItem="n55-SI-MIm" firstAttribute="leading" secondItem="qhi-E7-IsC" secondAttribute="trailing" constant="16" id="EGX-fB-s9g"/>
-                            <constraint firstItem="qhi-E7-IsC" firstAttribute="top" secondItem="ftB-Ya-7m6" secondAttribute="bottom" constant="8" symbolic="YES" id="KyK-Uf-zVD"/>
-                            <constraint firstItem="pvd-fg-ZTh" firstAttribute="leading" secondItem="Hln-1a-C9r" secondAttribute="leading" id="M5q-XS-Hcs"/>
-                            <constraint firstAttribute="bottom" secondItem="ftB-Ya-7m6" secondAttribute="bottom" constant="120" id="QU3-o4-nsD"/>
-                            <constraint firstItem="ftB-Ya-7m6" firstAttribute="leading" secondItem="Hln-1a-C9r" secondAttribute="leading" constant="7" id="Vid-4I-QnG"/>
-                            <constraint firstItem="n55-SI-MIm" firstAttribute="top" secondItem="ftB-Ya-7m6" secondAttribute="bottom" constant="8" symbolic="YES" id="X2c-M1-Irx"/>
-                            <constraint firstItem="ftB-Ya-7m6" firstAttribute="trailing" secondItem="ASy-wC-ue5" secondAttribute="trailing" id="eOG-fD-CcU"/>
-                            <constraint firstItem="ftB-Ya-7m6" firstAttribute="centerX" secondItem="pvd-fg-ZTh" secondAttribute="centerX" id="hOU-n9-jhi"/>
-                            <constraint firstItem="pvd-fg-ZTh" firstAttribute="top" secondItem="Hln-1a-C9r" secondAttribute="top" id="iGp-0U-dil"/>
-                            <constraint firstItem="ftB-Ya-7m6" firstAttribute="leading" secondItem="qhi-E7-IsC" secondAttribute="leading" id="ikg-eF-H1B"/>
-                            <constraint firstItem="ftB-Ya-7m6" firstAttribute="top" secondItem="pvd-fg-ZTh" secondAttribute="bottom" constant="8" id="oT8-pp-a0C"/>
-                            <constraint firstItem="ASy-wC-ue5" firstAttribute="top" secondItem="ftB-Ya-7m6" secondAttribute="bottom" constant="8" symbolic="YES" id="vx9-qE-KVO"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Hln-1a-C9r"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="即時服務" id="LvW-ce-txx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="V9T-DR-e0X">
-                            <connections>
-                                <action selector="doneBarBtnPressed:" destination="ADa-JF-0q6" id="xyf-zo-Nj9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="chatView" destination="pvd-fg-ZTh" id="JRv-Ru-961"/>
-                        <outlet property="inputTextField" destination="ftB-Ya-7m6" id="ooU-YO-yvb"/>
-                        <outlet property="refreshBtn" destination="ASy-wC-ue5" id="EJA-4x-6iG"/>
-                        <outlet property="sendMsgBtn" destination="qhi-E7-IsC" id="Mgr-6A-CPr"/>
-                        <outlet property="sendPhotoBtn" destination="n55-SI-MIm" id="xse-yp-s2Q"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CgY-ii-nLl" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1096.8" y="268.51574212893553"/>
-        </scene>
         <!--即時服務-->
         <scene sceneID="9vg-qg-5gb">
             <objects>
@@ -98,15 +22,97 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ADa-JF-0q6" kind="relationship" relationship="rootViewController" id="s16-fP-57Z"/>
+                        <segue destination="qj6-h1-Tgz" kind="relationship" relationship="rootViewController" id="t7m-Cg-DtF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHi-IY-mHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="325.60000000000002" y="268.51574212893553"/>
         </scene>
+        <!--OrderOnline-->
+        <scene sceneID="iih-Lf-gqa">
+            <objects>
+                <viewController title="OrderOnline" id="qj6-h1-Tgz" customClass="OrderOnlineViewController" customModule="DrinkShopClient_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Egd-v8-jtC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QnU-6r-dEs" customClass="ChatView" customModule="DrinkShopStore_IOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8r-sm-YpZ">
+                                <rect key="frame" x="8" y="582" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="FMI-yo-23R"/>
+                                    <constraint firstAttribute="height" constant="28" id="VEM-1m-ahm"/>
+                                </constraints>
+                                <state key="normal" title="上傳圖片" image="camera"/>
+                                <connections>
+                                    <action selector="sendPhotoBtnPressed:" destination="qj6-h1-Tgz" eventType="touchUpInside" id="2eF-rQ-e94"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q5j-lH-sMq">
+                                <rect key="frame" x="44" y="582" width="287" height="28"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dj6-nT-FJX">
+                                <rect key="frame" x="339" y="582" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="hwc-tL-Ze6"/>
+                                    <constraint firstAttribute="width" constant="28" id="uRi-SE-Q9D"/>
+                                </constraints>
+                                <state key="normal" title="發送訊息" image="send"/>
+                                <connections>
+                                    <action selector="sendTextBtnPressed:" destination="qj6-h1-Tgz" eventType="touchUpInside" id="3xF-A0-rIP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="v8r-sm-YpZ" firstAttribute="leading" secondItem="w0b-2f-X1n" secondAttribute="leading" constant="8" id="0XE-c7-Q4q"/>
+                            <constraint firstItem="QnU-6r-dEs" firstAttribute="leading" secondItem="w0b-2f-X1n" secondAttribute="leading" id="2Zn-fy-jLh"/>
+                            <constraint firstItem="dj6-nT-FJX" firstAttribute="top" secondItem="QnU-6r-dEs" secondAttribute="bottom" constant="8" id="9us-Ho-c2c"/>
+                            <constraint firstItem="v8r-sm-YpZ" firstAttribute="top" secondItem="QnU-6r-dEs" secondAttribute="bottom" constant="8" id="Mhq-fy-kpy"/>
+                            <constraint firstItem="w0b-2f-X1n" firstAttribute="bottom" secondItem="q5j-lH-sMq" secondAttribute="bottom" constant="8" id="QOP-Ni-1Cd"/>
+                            <constraint firstItem="q5j-lH-sMq" firstAttribute="leading" secondItem="v8r-sm-YpZ" secondAttribute="trailing" constant="8" id="Sxx-J7-f1u"/>
+                            <constraint firstItem="q5j-lH-sMq" firstAttribute="leading" secondItem="v8r-sm-YpZ" secondAttribute="trailing" constant="8" id="Uwj-mc-d3r"/>
+                            <constraint firstItem="dj6-nT-FJX" firstAttribute="leading" secondItem="q5j-lH-sMq" secondAttribute="trailing" constant="8" id="do4-1C-ZC4"/>
+                            <constraint firstItem="QnU-6r-dEs" firstAttribute="top" secondItem="w0b-2f-X1n" secondAttribute="top" id="dsQ-pQ-Cpr"/>
+                            <constraint firstItem="QnU-6r-dEs" firstAttribute="trailing" secondItem="w0b-2f-X1n" secondAttribute="trailing" id="eKO-7U-H9N"/>
+                            <constraint firstItem="dj6-nT-FJX" firstAttribute="leading" secondItem="q5j-lH-sMq" secondAttribute="trailing" constant="8" id="gnf-YA-Xrg"/>
+                            <constraint firstItem="w0b-2f-X1n" firstAttribute="trailing" secondItem="dj6-nT-FJX" secondAttribute="trailing" constant="8" id="kJ5-BY-QGq"/>
+                            <constraint firstItem="w0b-2f-X1n" firstAttribute="bottom" secondItem="dj6-nT-FJX" secondAttribute="bottom" constant="8" id="p9Z-BW-Kl9"/>
+                            <constraint firstItem="q5j-lH-sMq" firstAttribute="top" secondItem="QnU-6r-dEs" secondAttribute="bottom" constant="8" id="vSQ-7L-hCd"/>
+                            <constraint firstItem="w0b-2f-X1n" firstAttribute="bottom" secondItem="v8r-sm-YpZ" secondAttribute="bottom" constant="8" id="ycr-Rv-LrX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="w0b-2f-X1n"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="即時服務" id="69V-Ud-I87">
+                        <barButtonItem key="rightBarButtonItem" image="refresh" id="GJO-SG-TYf">
+                            <connections>
+                                <action selector="refreshBtnPressed:" destination="qj6-h1-Tgz" id="bGv-k2-jHJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="chatView" destination="QnU-6r-dEs" id="Kzc-dp-vdd"/>
+                        <outlet property="inputTextField" destination="q5j-lH-sMq" id="fdc-IH-IGx"/>
+                        <outlet property="refreshBtn" destination="GJO-SG-TYf" id="Zon-EG-8gx"/>
+                        <outlet property="sendMsgBtn" destination="dj6-nT-FJX" id="x5l-sZ-PfB"/>
+                        <outlet property="sendPhotoBtn" destination="v8r-sm-YpZ" id="lkn-tB-lvS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mIw-xt-Ju1" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1130" y="269"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="camera" width="200.34782409667969" height="200.34782409667969"/>
         <image name="orderonline" width="37.5" height="37.5"/>
+        <image name="refresh" width="72" height="72"/>
+        <image name="send" width="200.34782409667969" height="200.34782409667969"/>
     </resources>
 </document>
